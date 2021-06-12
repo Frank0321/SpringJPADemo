@@ -1,10 +1,9 @@
 # Spring : JPA 範例檔案
 
-此次內容包含兩種 DAO 的設計  :
-- 使用 @Repository 的 annotation
-- 使用 JpaRepository interface 介面，便添加 H2 DB 資料庫
-
-以及相關 swagger 設定
+此次內容包含 :
+- 使用 @Repository 的 annotation 設定 DAO 
+- 使用 JpaRepository interface 介面設計 DAO，以及添加 H2 DB 資料庫
+- 以及相關 swagger 設定
 
 
 ---
