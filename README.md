@@ -60,7 +60,7 @@ spring.datasource.url=jdbc:h2:mem:0805dad6-46fe-47ac-bd27-56efb3b18a28
 │ │ ├─ application.properties
 │ │ ├─ banner.txt
 ```
-> - 啟動時，會顯示 banner 的圖案 <3
+> - 啟動時，會顯示 banner 的圖案
 
 
 ## 操作方式 
