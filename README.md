@@ -41,6 +41,12 @@
 ```
 
 ## 特殊設定
+設定於 `application.properties`
+```shell script
+pring.h2.console.enabled=true
+```
+> - 在網頁上開啟 H2 葉面
+
 
 
 
