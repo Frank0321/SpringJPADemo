@@ -11,12 +11,33 @@
 
 ## 新增的依賴
 ```shell script
+    <!-- 新增 開啟 swagger 功能 -->
+	<dependency>
+		<groupId>org.springdoc</groupId>
+		<artifactId>springdoc-openapi-ui</artifactId>
+		<version>1.5.9</version>
+	</dependency>
+    
     <!-- 縮減 swagger 中 pageable 參數的設定功能 -->
-    <dependency>
-			<groupId>org.springdoc</groupId>
-			<artifactId>springdoc-openapi-data-rest</artifactId>
-			<version>1.5.9</version>
-		</dependency>
+	<dependency>
+		<groupId>org.springdoc</groupId>
+		<artifactId>springdoc-openapi-data-rest</artifactId>
+		<version>1.5.9</version>
+	</dependency>
+    
+    <!-- H2 DB -->
+	<dependency>
+		<groupId>com.h2database</groupId>
+		<artifactId>h2</artifactId>
+		<scope>runtime</scope>
+	</dependency>
+	
+    <!-- 加入 JUnit、Mockito -->
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-test</artifactId>
+		<scope>test</scope>
+	</dependency>
 
 ```
 
