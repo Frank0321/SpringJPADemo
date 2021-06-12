@@ -6,10 +6,19 @@
 - 以及相關 swagger 設定
 
 ## 環境相關設定
-<details>
-  Java 11
-  H2 DB
-</detail>
+* Java 11
+* H2 DB
+
+## 新增的依賴
+```shell script
+    <!-- 縮減 swagger 中 pageable 參數的設定功能 -->
+    <dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-data-rest</artifactId>
+			<version>1.5.9</version>
+		</dependency>
+
+```
 
 
 
