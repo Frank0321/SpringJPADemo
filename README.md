@@ -52,8 +52,6 @@ spring.datasource.url=jdbc:h2:mem:0805dad6-46fe-47ac-bd27-56efb3b18a28
 ```
 > - 固定 H2 的 JDBC URL
 
-
-
 新增 `banner.txt` 新增位置如下
 ```
 ├─main      
@@ -65,11 +63,16 @@ spring.datasource.url=jdbc:h2:mem:0805dad6-46fe-47ac-bd27-56efb3b18a28
 > - 啟動時，會顯示 banner 的圖案 <3
 
 
+## 操作方式 
+啟動 Spring 之後，
+- 開啟 swagger 的方式
+```shell script
+http://localhost:8080/swagger-ui.html
+```
+- 開啟 swagger 的方式
+```shell script
+localhost:8080/h2-console
+```
 
+## 注意事項
 
-
-
-## 注意事項 :
-
-> - 新增 openapi 的依賴，可以執行 swagger (hocalhost:8080/swagger-ui.html)，方便針對 api 進行操作
-> - 新增 h2 DB 的依賴，並在 application.properties 進行相關設定，可以在網頁直接開啟 DB (localhost:8080/h2-console)
