@@ -45,15 +45,22 @@
 ```shell script
 pring.h2.console.enabled=true
 ```
-> - 在網頁上開啟 H2 葉面
+> - 在網頁上開啟 H2 頁面
 
 ```shell script
 spring.datasource.url=jdbc:h2:mem:0805dad6-46fe-47ac-bd27-56efb3b18a28
 ```
-> - 固定 H2 JDBC URL
+> - 固定 H2 的 JDBC URL
 
-
-
+新增 `banner.txt` 新增位置如下
+```
+├─main      
+│ ├─ java             
+│ ├─ resource      
+│ │ ├─ application.properties
+│ │ ├─ banner.txt
+```
+> - 啟動時，會顯示 banner 的圖案 <3
 
 
 
