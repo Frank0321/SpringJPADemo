@@ -11,6 +11,7 @@ import java.util.Collection;
 @Repository
 public interface EmpolyRepository extends JpaRepository<EmpolyEntity, Long> , JpaSpecificationExecutor<EmpolyEntity> {
 
+    /*
     private void rule(){
         //命名規則
         //https://docs.spring.io/spring-data/jpa/docs/2.5.1/reference/html/#jpa.query-methods.query-creation
@@ -37,5 +38,6 @@ public interface EmpolyRepository extends JpaRepository<EmpolyEntity, Long> , Jp
     //ref : https://matthung0807.blogspot.com/2018/06/jpa-jpql.html
     //nativeQuery 節定你使用哪一個語法，使用方法名稱，還是使用 @Query 的
 
+     */
 
 }
