@@ -78,7 +78,7 @@ http://localhost:8080/swagger-ui.html
 ```
 - 開啟 swagger 的方式
 ```shell script
-localhost:8080/h2-console
+http://localhost:8080/h2-console
 ```
 
 ## 注意事項
