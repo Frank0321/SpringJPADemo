@@ -27,6 +27,7 @@ public class EmpolyService {
 //    }
 
     public EmpolyEntity findById(Long id) {
+        // 使用 getById 需要再處理 Exception 的問題
         return empolyRepository.findById(id).orElse(null);
     }
 

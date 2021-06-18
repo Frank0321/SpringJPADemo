@@ -11,6 +11,9 @@ import java.util.Collection;
 @Repository
 public interface EmpolyRepository extends JpaRepository<EmpolyEntity, Long> , JpaSpecificationExecutor<EmpolyEntity> {
 
+    /**
+     * 使用了 JPA 的 dependency 後，一定要綁一個 DB (如 H2)
+     */
     /*
     private void rule(){
         //命名規則

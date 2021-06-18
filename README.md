@@ -32,6 +32,13 @@
 		<scope>runtime</scope>
 	</dependency>
 	
+	<!-- jap 依賴 -->
+	<!-- 新增 jpa 依賴後，一定要有 DB 的存在 (常用為 H2) -->
+	<dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-data-jpa</artifactId>
+    </dependency>
+	
     <!-- 加入 JUnit、Mockito -->
 	<dependency>
 		<groupId>org.springframework.boot</groupId>
@@ -75,4 +82,19 @@ localhost:8080/h2-console
 ```
 
 ## 注意事項
+1. 有使用到 DB 後，則需要
+   - 使用到 @Entity
+   -  標註 @Id、@GeneratedValue 在主鍵上
+
+2. Repository : getById() 禁止使用
+   - getOne()方法是懒加载的（lazy load）
+   - 只有在实体类实际取值的时候才会去查询数据库。如果把查询出来的实体当结果返回，就很容易出现no session的错误，
+     返回到上一层就不在事务中，session就会关闭，no session就应运而生啦。
+   - 如果要使用的話，要如何使用 ?
+   
+   - [參考1](https://www.javacodemonk.com/difference-between-getone-and-findbyid-in-spring-data-jpa-3a96c3ff)
+   - [參考2](https://www.wuzhongyue.com/2018/2018-08-19-spring-data-jpa-getone-nosession.html)
+   
+
+
 
