@@ -95,6 +95,8 @@ http://localhost:8080/h2-console
    - [參考1](https://www.javacodemonk.com/difference-between-getone-and-findbyid-in-spring-data-jpa-3a96c3ff)
    - [參考2](https://www.wuzhongyue.com/2018/2018-08-19-spring-data-jpa-getone-nosession.html)
    
-
+3. 修改 port 的方法
+   - application.properties 新增 : server.port=8081
+   - [參考](https://www.baeldung.com/spring-boot-change-port)
 
 
