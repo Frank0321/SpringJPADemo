@@ -40,48 +40,8 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-data-jpa</artifactId>
     </dependency>
-	
-    <!-- 加入 JUnit、Mockito -->
-	<dependency>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-test</artifactId>
-		<scope>test</scope>
-	</dependency>
 ```
 
-## 特殊設定
-設定於 `application.properties`
-```shell script
-pring.h2.console.enabled=true
-```
-> - 在網頁上開啟 H2 頁面
-
-```shell script
-spring.datasource.url=jdbc:h2:mem:0805dad6-46fe-47ac-bd27-56efb3b18a28
-```
-> - 固定 H2 的 JDBC URL
-
-新增 `banner.txt` 新增位置如下
-```
-├─main      
-│ ├─ java             
-│ ├─ resource      
-│ │ ├─ application.properties
-│ │ ├─ banner.txt
-```
-> - 啟動時，會顯示 banner 的圖案
-
-
-## 操作方式 
-啟動 Spring 之後，
-- 開啟 swagger 的方式
-```shell script
-http://localhost:8080/swagger-ui.html
-```
-- 開啟 swagger 的方式
-```shell script
-http://localhost:8080/h2-console
-```
 
 ## 注意事項
 1. 有使用到 DB 後，則需要
@@ -96,9 +56,5 @@ http://localhost:8080/h2-console
    
    - [參考1](https://www.javacodemonk.com/difference-between-getone-and-findbyid-in-spring-data-jpa-3a96c3ff)
    - [參考2](https://www.wuzhongyue.com/2018/2018-08-19-spring-data-jpa-getone-nosession.html)
-   
-3. 修改 port 的方法
-   - application.properties 新增 : server.port=8081
-   - [參考](https://www.baeldung.com/spring-boot-change-port)
 
 
