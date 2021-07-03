@@ -1,0 +1,13 @@
+package tw.com.softleader.SpringJpaVersion1;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class SpringJpaVersion1Application {
+
+	public static void main(String[] args) {
+		SpringApplication.run(SpringJpaVersion1Application.class, args);
+	}
+
+}
