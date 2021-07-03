@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="SpringJpaVersion5" />
         <module name="SpringJpaVersion4" />
         <module name="SpringJpaVersion3" />
         <module name="SpringJpaVersion2" />
@@ -19,6 +20,7 @@
       <module name="SpringJpaVersion2" target="11" />
       <module name="SpringJpaVersion3" target="11" />
       <module name="SpringJpaVersion4" target="11" />
+      <module name="SpringJpaVersion5" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -28,6 +30,7 @@
       <module name="SpringJpaVersion2" options="-parameters" />
       <module name="SpringJpaVersion3" options="-parameters" />
       <module name="SpringJpaVersion4" options="-parameters" />
+      <module name="SpringJpaVersion5" options="-parameters" />
     </option>
   </component>
 </project>

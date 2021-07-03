@@ -5,6 +5,7 @@
 - version2 : 使用 JpaRepository interface 介面設計 DAO，以及添加 H2 DB 資料庫
 - version3 : 以及相關 swagger 設定
 - version4 : H2 DB 相關設定與 Entity 繼承關係
+- version5 : 預計 Entity 與 request 與 response 中間新增一層物件，並使用 Mapper 進行轉換
 
 ## 環境相關設定
 * Java 11

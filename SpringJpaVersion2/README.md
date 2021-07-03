@@ -52,6 +52,8 @@
 - Controller
 
 - Service
+  - @RequiredArgsConstructor : 生成一個包含 final 變量的建構子
+  - Page<T> 用法 : 參考範例程式
 
 - DAO (interface)
   - 使用 JpaRepository (interface) 進行操作
@@ -80,5 +82,4 @@
     ```
    - 將檔案放置此，就可以更換啟動的圖示 (好玩用) 
    - [圖案來源](https://www.bootschool.net/ascii-art)
-
-## annotation 介紹
+  
