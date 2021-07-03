@@ -23,10 +23,24 @@ public class UserService {
 
     @PostConstruct
     public void init(){
-        for (Long i = 0L; i < 100L; i++) {
+        for (Long i = 0L; i < 10L; i++) {
             userRepository.save(UserEntity.builder().id(i).name("ABC"+ i).build());
         }
     }
+
+    @PostConstruct
+    public void initEmployee(){
+        userRepository.save(EmployEntity.builder()
+                .id(11L)
+                .name("Employee")
+                .build());
+
+        userRepository.save(EmployEntity.builder()
+                .employNo("A")
+                .employEmail("email")
+                .build());
+    }
+
 
 
 }
