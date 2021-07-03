@@ -9,7 +9,7 @@ import java.util.Collection;
 // 因為要使用 RESTful，需要使用 @RESTful 這一個，否則無法使用 Mapping
 @RestController
 //這個其實不太重要
-@RequestMapping("/Vesion1")
+@RequestMapping("/Version1")
 @RequiredArgsConstructor
 public class UserController {
 

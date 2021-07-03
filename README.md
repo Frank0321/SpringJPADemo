@@ -1,9 +1,10 @@
 # Spring : JPA 範例檔案
 
 此次內容包含 :
-- versiov1 : 使用 @Repository 的 annotation 設定 DAO 
+- version1 : 使用 @Repository 的 annotation 設定 DAO 
 - version2 : 使用 JpaRepository interface 介面設計 DAO，以及添加 H2 DB 資料庫
 - version3 : 以及相關 swagger 設定
+- version4 : H2 DB 相關設定與 Entity 繼承關係
 
 ## 環境相關設定
 * Java 11
