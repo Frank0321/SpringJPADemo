@@ -50,10 +50,24 @@
 
 ## 介紹
 - Controller
+  - 讀取參數的方式有三種 : @RequestParam、@PathVariable、@RequestBody
+  - @RequestParam : 會在網址後面面多一個名稱與問號
+    - http://localhost:8082/version2/findById?id=10
+  - @PathVariable : 直接連載網址後面
+    - http://localhost:8082/version2/50
+  - @RequestBody : 類似用 post 的方式傳入參數
+    - http://localhost:8082/version2
 
 - Service
   - @RequiredArgsConstructor : 生成一個包含 final 變量的建構子
-  - Page<T> 用法 : 參考範例程式
+  - Page<T> 用法 : 參考範例程式，常使用到三個參數 :
+    - root 用來定義跟哪個欄位比對
+    - query : top level query 通常用不到，先忽略
+    - criteriaBuilder 用來定義 where 的比對條件，如 eq、lt、gt 之類的
+  - 修改資料的流程 : 
+    - 需要在資料庫內找到待修改的資料
+    - 將資料進行更新
+    - 更新完之後，重新存回資料庫
 
 - DAO (interface)
   - 使用到 JPA dependency 的時候，會自動配置 DataSource，否則會 :
@@ -68,9 +82,13 @@
     - 添加 H2 DB 的 dependency
   - [baeldung 解決方法](https://www.baeldung.com/spring-boot-failed-to-configure-data-source)
   - [stackoverflow 解決方法](https://stackoverflow.com/questions/24074749/spring-boot-cannot-determine-embedded-database-driver-class-for-database-type)
-  <br></br>  
-  - 使用 JpaRepository (interface) 進行操作
-  - 使用到 JpaRepository 時，同時也需要建置一個實體的資料庫 (Entity)，因此需要將物件改成 Entity，並標註 @Entity
+  <br></br>
+  - findById() : 會立刻訪問資料庫，回傳指定 ID 的實體物件(Optional<T>)，如果沒有資料則回傳 Optional.empty()
+  - getOne() : 是一個延遲加載的方法，並不會立刻訪問資料庫，而是回傳一個代理對象，
+    只有當代理對象訪問屬性時，才會連線資料庫，找不到則會回傳一個 EntityNotFoundException
+  - findOne() : 用於動態購艦多條件查詢的場景中，為立即連線資料庫，並回傳 Optional 的物件
+  - Optional 物件，需處理 null 的問題，常見的處理方式為添加 orElse() 如範例 : 
+    - userRepository.findById(id).orElse(null)
   - 禁止使用 getOne()，需要使用到延遲加載時，才會使用到
   - [findById、getOne、findOne 的差異](https://www.cnblogs.com/ktgu/p/13772236.html)
   - [stackoverfloww 解釋 getOne & findOne](https://stackoverflow.com/questions/24482117/when-use-getone-and-findone-methods-spring-data-jpa)
@@ -78,6 +96,10 @@
 
 - UserEntity 為物件
     - 為整個系統傳遞的資料
+    - 標註 @Entity ，則會自動產生一個實體的資料庫
+    - 標註為 Entity 之後，一定要有 @Id ，標明主鍵的欄位
+    - 可使用 @GeneratedValue 自動依順序產生編號
+  
 
 - application.properties
   - 修改 port 

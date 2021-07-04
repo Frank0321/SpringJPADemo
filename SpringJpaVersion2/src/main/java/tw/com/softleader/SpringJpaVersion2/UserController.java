@@ -32,8 +32,8 @@ public class UserController {
         return userService.findAll(pageable);
     }
     @Operation(summary = "查詢單一筆資料")
-    @GetMapping("/{id}")
-    public UserEntity findOne (@PathVariable("id") Long id){
+    @GetMapping("/findById")
+    public UserEntity findOne (@RequestParam(value = "id", required = false, defaultValue = "10") Long id){
         return userService.findById(id);
     }
     @Operation(summary = "以物件的 name 進行查詢，並以分頁呈現結果")
