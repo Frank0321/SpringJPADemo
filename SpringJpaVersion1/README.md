@@ -38,3 +38,16 @@
     
     
 ## annotation 介紹
+- @Repository
+  - 用法：使用者標註資料訪問層元件（Dao層） 
+  - 作用：實現Dao訪問；將類識別為Bean，同時它將所標註的類中丟擲的資料訪問異常封裝為 Spring 的資料訪問異常型別。
+- @Service
+  - 用法：用於標註業務層元件(Service層)上 
+  - 作用：標註於業務層元件上表示定義一個bean，自動根據所標註的元件名稱例項化一個首字母為小寫的bean。
+- @PostConstruct
+- @RestController
+- @RequestMapping  
+- @RequiredArgsConstructor
+
+- [annotation 參考資料](https://codertw.com/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80/12317/)
+- [annotation 參考資料](https://codertw.com/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80/488347/)

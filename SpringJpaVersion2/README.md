@@ -56,8 +56,25 @@
   - Page<T> 用法 : 參考範例程式
 
 - DAO (interface)
+  - 使用到 JPA dependency 的時候，會自動配置 DataSource，否則會 :
+    org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException，
+  - 錯誤訊息如下
+    - Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+    - Reason: Failed to determine a suitable driver class
+  - 建議的解決方法如下 : 
+    - If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
+    - If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
+  - 最快的解決方法 : 
+    - 添加 H2 DB 的 dependency
+  - [baeldung 解決方法](https://www.baeldung.com/spring-boot-failed-to-configure-data-source)
+  - [stackoverflow 解決方法](https://stackoverflow.com/questions/24074749/spring-boot-cannot-determine-embedded-database-driver-class-for-database-type)
+  <br></br>  
   - 使用 JpaRepository (interface) 進行操作
   - 使用到 JpaRepository 時，同時也需要建置一個實體的資料庫 (Entity)，因此需要將物件改成 Entity，並標註 @Entity
+  - 禁止使用 getOne()，需要使用到延遲加載時，才會使用到
+  - [findById、getOne、findOne 的差異](https://www.cnblogs.com/ktgu/p/13772236.html)
+  - [stackoverfloww 解釋 getOne & findOne](https://stackoverflow.com/questions/24482117/when-use-getone-and-findone-methods-spring-data-jpa)
+  
 
 - UserEntity 為物件
     - 為整個系統傳遞的資料

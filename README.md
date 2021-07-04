@@ -11,6 +11,46 @@
 * Java 11
 * H2 DB
 
+
+
+## 共用設定
+
+- 因為使用 RESTful 的方式操作 CRUD，因此皆會使用到 swagger 的方式進行操作
+
+
+
+## version1 介紹
+
+- 使用 @Repository 的 annoation 方式撰寫 DAO，屬實具體類別
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 新增的依賴
 ```shell script
     <!-- 新增 開啟 swagger 功能 -->
@@ -56,5 +96,4 @@
    
    - [參考1](https://www.javacodemonk.com/difference-between-getone-and-findbyid-in-spring-data-jpa-3a96c3ff)
    - [參考2](https://www.wuzhongyue.com/2018/2018-08-19-spring-data-jpa-getone-nosession.html)
-
 
