@@ -83,6 +83,7 @@
   - [baeldung 解決方法](https://www.baeldung.com/spring-boot-failed-to-configure-data-source)
   - [stackoverflow 解決方法](https://stackoverflow.com/questions/24074749/spring-boot-cannot-determine-embedded-database-driver-class-for-database-type)
   <br></br>
+  - 找尋一筆資料的方式可分成 : findById、getOne、findOne 這三種
   - findById() : 會立刻訪問資料庫，回傳指定 ID 的實體物件(Optional<T>)，如果沒有資料則回傳 Optional.empty()
   - getOne() : 是一個延遲加載的方法，並不會立刻訪問資料庫，而是回傳一個代理對象，
     只有當代理對象訪問屬性時，才會連線資料庫，找不到則會回傳一個 EntityNotFoundException
