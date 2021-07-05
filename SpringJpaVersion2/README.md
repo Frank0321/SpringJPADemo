@@ -57,7 +57,54 @@
     - http://localhost:8082/version2/50
   - @RequestBody : 類似用 post 的方式傳入參數
     - http://localhost:8082/version2
+  <br></br>
+      
+- 依賴注入
+  - 使用 @Autowired 標記可以將該類別的物件載入進來，正式的說法是「注入」（inject）。
+    若以 Windows 作業系統來比喻注入，就像是對檔案「建立捷徑」。
+    捷徑能放到不同資料夾，而資料夾中的捷徑都指向同一個檔案實體。
+  - 常見的依賴注入可分為三種 : 變量注入、建構子注入、set 方法注入
+  - 變量注入 : UserServiceAutowired.java
+    - 較為精簡，但不能明確指定依賴
+  ```java
+  // 變量 (file) 注入
+    @Autowired
+    UserRepository userRepository;
+  ```
+  <br>
+  
+  - 建構子注入 : UserServiceConstructor.java
+    - 已經顯示註明必須強制注入
+    - 常會搭配 class 標註為 @Service、@RestController 等方式，
+      省略 @Autowired ，並搭配 @RequiredArgsConstructor 來完成注入
+  ```java
+    //Constructor 注入
+    final UserRepository userRepository;
 
+    @Autowired
+    public UserServiceConstructor(UserRepository userRepository){
+        this.userRepository = userRepository;
+    }
+  ```    
+  <br>
+  
+  - set 方法注入 : UserServiceSetter.java
+    - 已經顯示註明必須強制注入
+    - 實際上較少見
+  ```java
+    //sest方法注入
+    private UserRepository userRepository;
+
+    @Autowired
+    public void setUserRepository(UserRepository userRepository){
+        this.userRepository = userRepository;
+    }
+  ```
+  <br>
+  
+  - [元件的運用與交互關係，元件的注入](https://chikuwa-tech-study.blogspot.com/2021/05/spring-boot-bean-introduction.html)
+  - [三種注入的方式介紹](https://blog.csdn.net/zhangjingao/article/details/81094529)  
+  <br></br>
 - Service
   - @RequiredArgsConstructor : 生成一個包含 final 變量的建構子
   - Page<T> 用法 : 參考範例程式，常使用到三個參數 :
@@ -68,6 +115,7 @@
     - 需要在資料庫內找到待修改的資料
     - 將資料進行更新
     - 更新完之後，重新存回資料庫
+  <br></br>
 
 - DAO (interface)
   - 使用到 JPA dependency 的時候，會自動配置 DataSource，否則會 :
@@ -109,7 +157,7 @@
     - 注意 Spring Boot 2.3.0 開始 spring.datasource.generate-unique-name 預設為 true，
       因此H2資料庫名稱是亂數產生，不再為預設的 testdb，
       所以設定 spring.datasource.url=jdbc:h2:mem:testdb 指定資料庫名稱為 testdb
-
+<br></br>
 - banner.txt
   - 放置位置
     ```

@@ -21,10 +21,6 @@ public class UserService {
 
     final UserRepository userRepository;
 
-//    public EmpolyService(EmpolyRepository empolyRepository){
-//        this.empolyRepository = empolyRepository;
-//    }
-
     public UserEntity findById(Long id) {
         // 使用 getById 需要再處理 Exception 的問題
         return userRepository.findById(id).orElse(null);

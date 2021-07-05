@@ -12,18 +12,20 @@
 * H2 DB
 
 
-
 ## 共用設定
 
 - 因為使用 RESTful 的方式操作 CRUD，因此皆會使用到 swagger 的方式進行操作
 
 
+## 整組專案建置方法
 
 ## version1 介紹
 
 - 使用 @Repository 的 annoation 方式撰寫 DAO，屬實具體類別
 
-
+## 參考資料
+- [新手工程師程式教室](https://chikuwa-tech-study.blogspot.com/2021/05/spring-boot-create-project.html)
+  - Spring boot 共 20 文章
 
 
 
