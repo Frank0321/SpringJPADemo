@@ -88,7 +88,7 @@
   - 用法：用於標註業務層元件(Service層)上 
   - 作用：標註於業務層元件上表示定義一個bean，自動根據所標註的元件名稱例項化一個首字母為小寫的bean。
 - @PostConstruct : 當此 Java 被建立時，則自動執行該方法
-- @RestController : 標記為 RESTFul 的 Controller，
+- @RestController : 標記為 RESTFul 的 Controller
 - @RequestMapping :
   - 用來對應請求的方法，標在 class 上面，表示根目錄。而常見的 CRUD 可以用 GetMapper 等方式取代
   - @GetMapping("/{id}") : @RequestMapping(value = "/{id}", method = RequestMethod.GET)
