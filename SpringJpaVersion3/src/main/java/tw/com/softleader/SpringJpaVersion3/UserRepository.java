@@ -23,7 +23,7 @@ public class UserRepository {
         users.add(User.builder().id(1L).name("Frank").build());
     }
 
-    public long save (User user){
+    public Long save (User user){
         user.setId((long) users.size()+1);
         users.add(user);
         return user.getId();
