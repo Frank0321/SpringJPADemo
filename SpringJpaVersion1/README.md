@@ -1,5 +1,5 @@
 # VERSION1 內容
-以最簡單的方式，撰寫 Spring Boot 的 CRUD
+以簡單的方式，撰寫 Spring Boot 的 CRUD
 
 ## 主要檔案
 - user (物件)

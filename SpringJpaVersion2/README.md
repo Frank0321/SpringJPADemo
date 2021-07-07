@@ -57,6 +57,8 @@
     - http://localhost:8082/version2/50
   - @RequestBody : 類似用 post 的方式傳入參數
     - http://localhost:8082/version2
+  - [參考](https://blog.csdn.net/u011410529/article/details/66974974)
+  - [參考](https://www.jianshu.com/p/8d6dffe88d21)
   <br></br>
       
 - Service
@@ -125,5 +127,5 @@
    - 將檔案放置此，就可以更換啟動的圖示 (好玩用) 
    - [圖案來源](https://www.bootschool.net/ascii-art)
 
-https://www.cnblogs.com/fx2008/p/3847739.html
-https://www.itread01.com/content/1542270723.html
+- https://www.cnblogs.com/fx2008/p/3847739.html
+- https://www.itread01.com/content/1542270723.html

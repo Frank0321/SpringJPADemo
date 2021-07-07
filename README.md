@@ -20,8 +20,25 @@
 ## 整組專案建置方法
 
 ## version1 介紹
+- 以簡單的例子，撰寫 Spring boot 的 CRUD 例子
+- 會使用到 annotation 來區分各層級 : 
+  - @Repository : DAO
+  - @Service : Service
+  - @RestController : Controller   
+    
+## version2 介紹
+- 添加實體資料庫(Entity)、JpaRepository、Controller 接收的參數形式
 
-- 使用 @Repository 的 annoation 方式撰寫 DAO，屬實具體類別
+## version3 介紹
+- 添增在 swagger 上面的顯示註解，DAO 改成使用 interface 抽象方法撰寫
+
+## version4 介紹
+- 實際操作不同 Entity 之間的關係，DAO 改成使用 @Query 來設計
+
+## version5 介紹
+- 添加一層結構 (request -> object -> entity)，使用到 Mapper
+- 解釋相關資訊
+- [POJO、PO、DTO、VO、BO](https://hackmd.io/@MonsterLee/HJyAdgRBB)
 
 ## 參考資料
 - [新手工程師程式教室](https://chikuwa-tech-study.blogspot.com/2021/05/spring-boot-create-project.html)
