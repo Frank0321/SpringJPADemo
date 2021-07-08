@@ -63,6 +63,8 @@
     解決方法 :
     - 將 Mapper dependency 版本設為 1.4.1.Final
     - 在 Complier 的 User-local build process... 中，新增 -Djps.track.ap.dependencies=false
+    - [升級版本](https://www.cnblogs.com/viaisi/p/14103878.html)
+    - [stackoverflow 解決方法](https://stackoverflow.com/questions/65112406/intellij-idea-mapstruct-java-internal-error-in-the-mapping-processor-java-lang)
   ![image](https://i.stack.imgur.com/QyDMc.png)
   - Mapper dependency :
   ```xml
@@ -93,4 +95,4 @@
    - 將檔案放置此，就可以更換啟動的圖示 (好玩用) 
    - [圖案來源](https://www.bootschool.net/ascii-art)
 
--[Internal error in the mapping processor: java.lang.NullPointerException](https://stackoverflow.com/questions/65112406/intellij-idea-mapstruct-java-internal-error-in-the-mapping-processor-java-lang)
+-[Internal error in the mapping processor: java.lang.NullPointerException]()
