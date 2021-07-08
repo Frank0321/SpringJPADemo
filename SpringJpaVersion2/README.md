@@ -87,6 +87,12 @@
   - [baeldung 解決方法](https://www.baeldung.com/spring-boot-failed-to-configure-data-source)
   - [stackoverflow 解決方法](https://stackoverflow.com/questions/24074749/spring-boot-cannot-determine-embedded-database-driver-class-for-database-type)
   <br></br>
+  - JpaRepository interface 介紹
+    - [github 參考](https://morosedog.gitlab.io/springboot-20190328-springboot14/)
+    - [其他參考](https://waylau.gitbooks.io/spring-boot-tutorial/content/docs/jpa-sping-data-jpa.html)
+  - JpaSpecificationExecutor interface 介紹 :
+    - 為了使用到 Specification，並傳入 root, query, criteriaBuilder 這三個參數
+  <br></br> 
   - 找尋一筆資料的方式可分成 : findById、getOne、findOne 這三種
   - findById() : 會立刻訪問資料庫，回傳指定 ID 的實體物件(Optional<T>)，如果沒有資料則回傳 Optional.empty()
   - getOne() : 是一個延遲加載的方法，並不會立刻訪問資料庫，而是回傳一個代理對象，

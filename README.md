@@ -19,6 +19,14 @@
 
 ## 整組專案建置方法
 
+## Java 物件導向程式設計原則 SOLID Design Principles
+- Single Responsibility Principle (SRP) 單一職責原則
+- Open/Closed Principle (OCP) 開放封閉原則
+- Liskov Substitution Principle (LSP) 里氏替換原則
+- Interface Segregation Principle (ISP) 介面隔立原則
+- Dependency Inversion Principle (DIP) 依賴反轉原則
+- [SOLID](https://matthung0807.blogspot.com/2019/08/java-solid-design-principles.html)
+
 ## version1 介紹
 - 以簡單的例子，撰寫 Spring boot 的 CRUD 例子
 - 會使用到 annotation 來區分各層級 : 
