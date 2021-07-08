@@ -1,4 +1,4 @@
-# VERSION3 內容
+# VERSION5 內容
 
 
 ## 主要檔案
@@ -57,6 +57,28 @@
 
 - UserEntity 為物件
 
+- Mapper 
+  - Mapper 使用的版本在 1.4.1.Final(如 1.3.1.Final) 以下時，可能會發生
+    Internal error in the mapping processor: java.lang.NullPointerException，
+    解決方法 :
+    - 將 Mapper dependency 版本設為 1.4.1.Final
+    - 在 Complier 的 User-local build process... 中，新增 -Djps.track.ap.dependencies=false
+  ![image](https://i.stack.imgur.com/QyDMc.png)
+  - Mapper dependency :
+  ```xml
+  <dependency>
+      <groupId>org.mapstruct</groupId>
+      <artifactId>mapstruct</artifactId>
+      <version>1.4.1.Final</version>
+  </dependency>
+  <dependency>
+      <groupId>org.mapstruct</groupId>
+      <artifactId>mapstruct-processor</artifactId>
+      <version>1.4.1.Final</version>
+      <optional>true</optional>
+  </dependency>
+  ```
+
 - application.properties
 
 - banner.txt
@@ -71,3 +93,4 @@
    - 將檔案放置此，就可以更換啟動的圖示 (好玩用) 
    - [圖案來源](https://www.bootschool.net/ascii-art)
 
+-[Internal error in the mapping processor: java.lang.NullPointerException](https://stackoverflow.com/questions/65112406/intellij-idea-mapstruct-java-internal-error-in-the-mapping-processor-java-lang)

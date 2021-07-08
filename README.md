@@ -27,16 +27,30 @@
   - @RestController : Controller   
     
 ## version2 介紹
-- 添加實體資料庫(Entity)、JpaRepository、Controller 接收的參數形式
+- 撰寫 Spring boot 的 CRUD 例子，並新增 :
+  - 添加實體資料庫(Entity)
+  - JpaRepository
+  - Controller 接收的參數形式
+  - application.properties 的初步設定  
 
 ## version3 介紹
-- 添增在 swagger 上面的顯示註解，DAO 改成使用 interface 抽象方法撰寫
+- 以 Spring boot 的 CRUD 例子上，新增 :
+  - 添增在 swagger 上面的顯示註解
+  - DAO 改成使用 interface 抽象方法撰寫
+  - Controller 皆已 ResponseEntity 的方式回復 
 
 ## version4 介紹
-- 實際操作不同 Entity 之間的關係，DAO 改成使用 @Query 來設計
+- 以 Spring boot 的 CRUD 例子上，新增 :
+  - 新增 Entity 的關係、Entity 的相關設定
+  - DAO 改用 @query 來設計
+  - H2 DB 在 application.properties 的設定
+  - application.properties 的其他設定
 
 ## version5 介紹
-- 添加一層結構 (request -> object -> entity)，使用到 Mapper
+- 以 Spring boot 的 CRUD 例子上，新增資料夾購 :
+  - request -> dto -> entity
+  - Entity -> dto -> response
+  - Exception 處理  
 - 解釋相關資訊
 - [POJO、PO、DTO、VO、BO](https://hackmd.io/@MonsterLee/HJyAdgRBB)
 
