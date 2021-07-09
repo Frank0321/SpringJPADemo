@@ -28,17 +28,11 @@
     <artifactId>h2</artifactId>
     <scope>runtime</scope>
 </dependency>
-<!-- 縮減 swagger 中 pageable 參數的設定功能 -->
+<!-- Mapper 的依賴 -->
 <dependency>
-  <groupId>org.springdoc</groupId>
-  <artifactId>springdoc-openapi-data-rest</artifactId>
-  <version>1.5.9</version>
-</dependency>
-<!-- use @NotBlank annotation -->
-<dependency>
-  <groupId>org.springframework.boot</groupId>
-  <artifactId>spring-boot-starter-validation</artifactId>
-  <version>2.4.1</version>
+  <groupId>org.mapstruct</groupId>
+  <artifactId>mapstruct</artifactId>
+  <version>1.4.1.Final</version>
 </dependency>
 ```
 
@@ -53,7 +47,7 @@
 
 - Service
   
-- DAO (interface)
+- Repository (DAO)
 
 - UserEntity 為物件
 

@@ -8,7 +8,7 @@
 - UserController  (Controller)
 
 ## 使用的依賴 (dependency)
-```javascript
+```xml
 <!-- 新增 開啟 swagger 功能 ，網址為 : localhost:8081/swagger-ui.html-->
 <dependency>
     <groupId>org.springdoc</groupId>
@@ -31,7 +31,8 @@
   
 - Service
 
-- DAO
+- Repository (DAO)
+  - Repository : 習慣稱作為 DAO 
   
 - User 為物件
   - 為整個系統傳遞的資料

@@ -10,7 +10,7 @@
 - banner.txt (起始圖示檔，娛樂用 ?!)
 
 ## 使用的依賴 (dependency)
-```javascript
+```xml
 <!-- 新增 開啟 swagger 功能 ，網址為 : localhost:8081/swagger-ui.html-->
 <dependency>
     <groupId>org.springdoc</groupId>
@@ -73,7 +73,7 @@
     - 更新完之後，重新存回資料庫
   <br></br>
 
-- DAO (interface)
+- Repository (DAO，是一個 interface)
   - 使用到 JPA dependency 的時候，會自動配置 DataSource，否則會 :
     org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException，
   - 錯誤訊息如下

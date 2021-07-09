@@ -1,6 +1,7 @@
 package tw.com.softleader.SpringJpaVersion5;
 
 
+import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
@@ -11,7 +12,8 @@ import org.mapstruct.factory.Mappers;
  *
  * ref : https://github.com/softleader/softleader-training-course/tree/master/2019/Q4/mapstruct
  */
-@org.mapstruct.Mapper
+//@org.mapstruct.Mapper
+@Mapper
 public interface MemberMapper {
     MemberMapper INSTANCE = Mappers.getMapper(MemberMapper.class);
 

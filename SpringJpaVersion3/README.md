@@ -53,7 +53,7 @@
 
 - Service
   
-- DAO (interface)
+- Repository (DAO)
 
 - UserEntity 為物件
 
