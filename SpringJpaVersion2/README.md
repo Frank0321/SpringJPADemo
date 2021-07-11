@@ -57,8 +57,25 @@
     - http://localhost:8082/version2/50
   - @RequestBody : 類似用 post 的方式傳入參數
     - http://localhost:8082/version2
+  - @ModelAttribute : (較少用)
+    - 讓 Spring Boot 將查詢字串的值賦予給 ProductQueryParameter 物件，以便實作時使用。
+      Spring Boot 在透過標記賦予查詢字串的值時，是根據物件的 set 方法來執行。 
+    - 若偵測到 keyword 的查詢字串，setKeyword 方法就會自動被呼叫。
+    - 要取出 keyword 的參數，則使用 getKeyword() 的方式取出
+      ```java
+      public ResponseEntity<T> getProducts(@ModelAttribute ProductQueryParameter param) {
+        String keyword = param.getKeyword();
+        ...
+      }
+      ```
+   - @RequestBody 與 @ModelAttribute 區別
+     - @ModelAttribute 前端發送的格式 "x-www-form-urlencoded" ，
+       如果是 application/json ，雖然不會抱錯，但值不會自動填入
+     - @RequestBody 前端發送的格式 json
+  - [【Spring Boot】第4課－在 Controller 實作 API（二）](https://chikuwa-tech-study.blogspot.com/2021/05/spring-boot-controller-2.html)    
   - [參考](https://blog.csdn.net/u011410529/article/details/66974974)
   - [參考](https://www.jianshu.com/p/8d6dffe88d21)
+  - [@RequestBody 與 @ModelAttribute 區別](https://blog.csdn.net/qq_42684642/article/details/83058211)
   <br></br>
       
 - Service
