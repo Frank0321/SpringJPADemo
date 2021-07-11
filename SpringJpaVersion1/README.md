@@ -89,7 +89,7 @@
   - 用法：用於標註業務層元件(Service層)上 
   - 作用：標註於業務層元件上表示定義一個bean，自動根據所標註的元件名稱例項化一個首字母為小寫的bean。
 - @PostConstruct : 當此 Java 被建立時，則自動執行該方法
-- @RestController : 標記為 RESTFul 的 Controller
+- @RestController : 標記為 RESTFul 的 Controller，回傳 json/xml 類型的資料。等同於 @ResponseBody + @Controller
 - @RequestMapping :
   - 用來對應請求的方法，標在 class 上面，表示根目錄。而常見的 CRUD 可以用 GetMapper 等方式取代
   - @GetMapping("/{id}") : @RequestMapping(value = "/{id}", method = RequestMethod.GET)
@@ -98,6 +98,7 @@
   - @DeleteMapping("/{id}") :@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 - @RequiredArgsConstructor : 生成一個包含 “特定參數” 的 constructor，特定參數指的是那些有加上 final 修飾詞的變量們
 
+## 參考資料
 - [annotation 參考資料](https://codertw.com/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80/12317/)
 - [annotation 參考資料](https://codertw.com/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80/488347/)
 - [五分鐘學會 Lombok 用法](https://kucw.github.io/blog/2020/3/java-lombok/)
