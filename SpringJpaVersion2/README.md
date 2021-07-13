@@ -127,6 +127,8 @@
     - 標註 @Entity ，則會自動產生一個實體的資料庫
     - 標註為 Entity 之後，一定要有 @Id ，標明主鍵的欄位
     - 可使用 @GeneratedValue 自動依順序產生編號
+    - @Column 註解內的參數
+      - [參考](https://fanlychie.github.io/post/jpa-column-annotation.html)
   
 
 - application.properties
