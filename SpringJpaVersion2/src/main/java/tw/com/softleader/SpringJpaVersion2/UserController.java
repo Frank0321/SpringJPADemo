@@ -23,7 +23,7 @@ public class UserController {
     public void init(){
         for (int i = 1; i <= 1000; i++) {
             userService.save(UserEntity
-                    .builder().name("name" + i).build());
+                    .builder().name("name" + i).mail("email").phone("0987654321").build());
         }
     }
     @Operation(summary = "查詢全部資料，已分頁呈現")
