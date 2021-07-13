@@ -34,6 +34,14 @@
   - @Repository : DAO
   - @Service : Service
   - @RestController : Controller   
+- 本章重點 :
+  - RESTful 介紹
+  - 依賴注入的方式
+  - annotation 的介紹
+    - @Repository
+    - @Service
+    - @PostConstruct
+    - @RequestMapping 等相關
     
 ## version2 介紹
 - 撰寫 Spring boot 的 CRUD 例子，並新增 :
@@ -41,6 +49,12 @@
   - JpaRepository
   - Controller 接收的參數形式
   - application.properties 的初步設定  
+- 本章重點 :
+  - 常用的 dependency
+  - Controller 接收參數的(3+1)模式，最後一種較少使用
+  - JPA dependency 注意事項
+  - findById、getOne、findOne 這三種比較
+  - Entity 中 @Column 的介紹
 
 ## version3 介紹
 - 以 Spring boot 的 CRUD 例子上，新增 :

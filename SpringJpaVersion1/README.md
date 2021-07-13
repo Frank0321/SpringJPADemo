@@ -27,7 +27,9 @@
 - Controller
   - 使用 RESTful 的方式
   - 由於 CRUD 的操作無法直接用網頁進行，因此需要新增一個 swagger 的依賴，方便操作 CRUD
+  - TODO : 補充 RESTful 介紹
   - [RESTful參考](https://tw.alphacamp.co/blog/rest-restful-api)
+  
   
 - Service
 
@@ -70,7 +72,7 @@
   - 已經顯示註明必須強制注入
   - 實際上較少見
   ```java
-    //sest方法注入
+    //set 方法注入
     private UserRepository userRepository;
 
     @Autowired

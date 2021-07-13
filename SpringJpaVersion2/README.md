@@ -123,12 +123,21 @@
   
 
 - UserEntity 為物件
-    - 為整個系統傳遞的資料
-    - 標註 @Entity ，則會自動產生一個實體的資料庫
-    - 標註為 Entity 之後，一定要有 @Id ，標明主鍵的欄位
-    - 可使用 @GeneratedValue 自動依順序產生編號
-    - @Column 註解內的參數
-      - [參考](https://fanlychie.github.io/post/jpa-column-annotation.html)
+  - 為整個系統傳遞的資料
+   - 標註 @Entity ，則會自動產生一個實體的資料庫
+   - 標註為 Entity 之後，一定要有 @Id ，標明主鍵的欄位
+   - 可使用 @GeneratedValue 自動依順序產生編號
+   - @Column 註解內的參數
+     - name : 欄位名稱
+     - unique : 是否是唯一的
+     - nullable : 是否允許為 null
+     - insertable : 是否包含在 insert 語句中
+     - updatable : 是否包含在 update 語句中
+     - columnDefinition : 設定型態
+     - length : 長度
+     - precision : 精度，有效位數幾位
+     - scale : 精度，小數位數的總位數
+     - [參考](https://fanlychie.github.io/post/jpa-column-annotation.html)
   
 
 - application.properties
