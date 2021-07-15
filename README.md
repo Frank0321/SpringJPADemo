@@ -13,8 +13,15 @@
 
 
 ## 共用設定
-
-- 因為使用 RESTful 的方式操作 CRUD，因此皆會使用到 swagger 的方式進行操作
+- 因為使用 RESTful 的方式操作 CRUD，為了方便進行測試，可以使用
+  - swagger
+    - 需要添增依賴，然後再網址頁面後端輸入 /swagger-ui.html
+  - Postman
+    - 可以使用網頁板，或是桌面板
+    - 輸入網址，及請求方式
+    - TODO ，補充操作方式，以及送 Requestbody 的方式  
+      - [安裝介紹](https://ithelp.ithome.com.tw/articles/10201503)
+      - [操作介紹](https://tw.alphacamp.co/blog/postman-api-tutorial-for-beginners)
 
 
 ## 整組專案建置方法
