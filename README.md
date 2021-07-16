@@ -25,7 +25,10 @@
 
 
 ## 整組專案建置方法
-
+1. Project Settings -> Modules 
+2. 點選 add -> import Module
+3. 點選到下一層的專案 (pom.xml 的上一層)
+4. 如果是 maven 專案就以 maven 的方式 import
 
 ## Java 物件導向程式設計原則 SOLID Design Principles
 - Single Responsibility Principle (SRP) 單一職責原則
