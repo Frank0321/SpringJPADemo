@@ -74,6 +74,17 @@
       <optional>true</optional>
   </dependency>
   ```
+  - 介紹 : 在操作資料時，為了避免污染資料，或是保護資料，常會對於資料進行轉換
+  - 常見的轉換方式 : 
+    - 相同資料格式進行轉換 (欄位名稱一樣)
+    - 不同欄位名稱進行轉換 (id -> policy_id)
+    - Collection類型轉換
+    - 多來源物件組合進行轉換
+  
+  - [ref](https://www.tpisoftware.com/tpu/articleDetails/2443)  
+
+
+
 
 - application.properties
 
