@@ -32,7 +32,12 @@
 <dependency>
   <groupId>org.mapstruct</groupId>
   <artifactId>mapstruct</artifactId>
-  <version>1.4.1.Final</version>
+  <version>${mapstruct.version}</version>
+</dependency>
+<dependency>
+  <groupId>org.mapstruct</groupId>
+  <artifactId>mapstruct-processor</artifactId>
+  <version>${mapstruct.version}</version>
 </dependency>
 ```
 
@@ -51,7 +56,42 @@
 
 - UserEntity 為物件
 
-- Mapper 
+- Mapper
+  - 介紹 : 在操作資料時，為了避免污染資料，或是保護資料，常會對於資料進行轉換
+  - 常見的轉換方式 :
+    - 相同資料格式進行轉換 (欄位名稱一樣)
+    - 部分轉換 (VO)  
+    - 不同欄位名稱進行轉換 (id -> policy_id)
+    - Collection類型轉換
+    - 多來源物件組合進行轉換
+  - 使用的 dependency
+    ```xml
+    <mapstruct.version>1.4.2.Final</mapstruct.version>
+    
+    <dependency>
+        <groupId>org.mapstruct</groupId>
+        <artifactId>mapstruct</artifactId>
+        <version>${mapstruct.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.mapstruct</groupId>
+        <artifactId>mapstruct-processor</artifactId>
+        <version>${mapstruct.version}</version>
+    </dependency>
+    ```
+  - 使用到的功能 :   
+    - Mappers.getMapper : 自動生成的介面的實現可以通過 Mapper 的 class 物件獲取，從而讓客戶端可以訪問 Mapper 介面的實現
+    - @Mapping(source=<source field name>, target=<target field name>)
+      - source : 來源的欄位，對應抽象方法 input 參數名稱 + "." + 欄位
+      - target : 欄位則表示目標物件的欄位名稱
+    - @Mappings({...}) : 將多個@Mapping設定包裝起來
+    - mapstruct-processor (dependency) : 會自動生成轉換程式碼
+      - 在 target 裡面的 Mapper 位置，會自動升成一個 Impl 的 class
+
+  - 遇到問題 1 : java: package org.mapstruct does not exist
+    - 解決方法 : 好像不能直接把 version 寫在 dependency 裡面 ?!
+
+  - 遇到問題 2 : Internal error in the mapping processor: java.lang.NullPointerException
   - Mapper 使用的版本在 1.4.1.Final(如 1.3.1.Final) 以下時，可能會發生
     Internal error in the mapping processor: java.lang.NullPointerException，
     解決方法 :
@@ -60,44 +100,18 @@
     - [升級版本](https://www.cnblogs.com/viaisi/p/14103878.html)
     - [stackoverflow 解決方法](https://stackoverflow.com/questions/65112406/intellij-idea-mapstruct-java-internal-error-in-the-mapping-processor-java-lang)
   ![image](https://i.stack.imgur.com/QyDMc.png)
-  - Mapper dependency :
-  ```xml
-  <dependency>
-      <groupId>org.mapstruct</groupId>
-      <artifactId>mapstruct</artifactId>
-      <version>1.4.1.Final</version>
-  </dependency>
-  <dependency>
-      <groupId>org.mapstruct</groupId>
-      <artifactId>mapstruct-processor</artifactId>
-      <version>1.4.1.Final</version>
-      <optional>true</optional>
-  </dependency>
-  ```
-  - 介紹 : 在操作資料時，為了避免污染資料，或是保護資料，常會對於資料進行轉換
-  - 常見的轉換方式 : 
-    - 相同資料格式進行轉換 (欄位名稱一樣)
-    - 不同欄位名稱進行轉換 (id -> policy_id)
-    - Collection類型轉換
-    - 多來源物件組合進行轉換
-  
-  - [ref](https://www.tpisoftware.com/tpu/articleDetails/2443)  
+      
 
 
+  - [昕力 MapStruct 介紹](https://www.tpisoftware.com/tpu/articleDetails/2443) 
+  - [昕力 MapStruct sourceCode](https://github.com/memory-0318/sandbox/tree/master/0003_MapStructDemo)  
+  - [Mappers.getMapper 說明](https://www.itread01.com/content/1559145662.html)
 
-
-- application.properties
-
-- banner.txt
-  - 放置位置
-    ```
-    ├─main      
-    │ ├─ java             
-    │ ├─ resource      
-    │ │ ├─ application.properties
-    │ │ ├─ banner.txt
-    ```
-   - 將檔案放置此，就可以更換啟動的圖示 (好玩用) 
-   - [圖案來源](https://www.bootschool.net/ascii-art)
-
--[Internal error in the mapping processor: java.lang.NullPointerException]()
+## 補充 :
+- @Getter and @Setter 的訪問級別 (AccessLevel)
+  - 常見的訪問級別 : PUBLIC、PROTECTED、PACKAGE、PRIVATE、MODULE、NONE
+  - 範例 : @Setter(value = AccessLevel.MODULE)
+  - MODULE 和 PACKAGE 差別 : 好像沒差 ?!
+    - [MODULE 和 PACKAGE 差異 from stackoverfloww](https://stackoverflow.com/questions/47339716/what-is-the-difference-between-accesslevel-package-and-accesslevel-module)
+  - AccessLevel.NONE : 手動禁用任何欄位的 getter/setter 生成，並覆蓋類上的@Getter，@Setter或@Data註釋的行為
+    - [AccessLevel.NONE 解釋 ](https://www.gushiciku.cn/pl/poFU/zh-tw)
