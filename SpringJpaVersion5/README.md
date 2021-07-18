@@ -77,16 +77,21 @@
         <groupId>org.mapstruct</groupId>
         <artifactId>mapstruct-processor</artifactId>
         <version>${mapstruct.version}</version>
+        <!-- -->
+        <scope>provided</scope>
     </dependency>
     ```
   - 使用到的功能 :   
     - Mappers.getMapper : 自動生成的介面的實現可以通過 Mapper 的 class 物件獲取，從而讓客戶端可以訪問 Mapper 介面的實現
+      - 範例寫法 : CountryMapper INSTANCE = Mappers.getMapper(CountryMapper.class);
     - @Mapping(source=<source field name>, target=<target field name>)
       - source : 來源的欄位，對應抽象方法 input 參數名稱 + "." + 欄位
       - target : 欄位則表示目標物件的欄位名稱
     - @Mappings({...}) : 將多個@Mapping設定包裝起來
     - mapstruct-processor (dependency) : 會自動生成轉換程式碼
       - 在 target 裡面的 Mapper 位置，會自動升成一個 Impl 的 class
+    - @Mapper
+      - componentModel = "spring" : 自動產生 Impl 的 class，則不需要 Mappers.getMapper 生成 Impl，但會延伸問題 3
 
   - 遇到問題 1 : java: package org.mapstruct does not exist
     - 解決方法 : 好像不能直接把 version 寫在 dependency 裡面 ?!
@@ -94,18 +99,35 @@
   - 遇到問題 2 : Internal error in the mapping processor: java.lang.NullPointerException
   - Mapper 使用的版本在 1.4.1.Final(如 1.3.1.Final) 以下時，可能會發生
     Internal error in the mapping processor: java.lang.NullPointerException，
-    解決方法 :
-    - 將 Mapper dependency 版本設為 1.4.1.Final
-    - 在 Complier 的 User-local build process... 中，新增 -Djps.track.ap.dependencies=false
-    - [升級版本](https://www.cnblogs.com/viaisi/p/14103878.html)
-    - [stackoverflow 解決方法](https://stackoverflow.com/questions/65112406/intellij-idea-mapstruct-java-internal-error-in-the-mapping-processor-java-lang)
+    - 解決方法 :
+      - 將 Mapper dependency 版本設為 1.4.1.Final
+      - 在 Complier 的 User-local build process... 中，新增 -Djps.track.ap.dependencies=false
+      - [升級版本](https://www.cnblogs.com/viaisi/p/14103878.html)
+      - [stackoverflow 解決方法](https://stackoverflow.com/questions/65112406/intellij-idea-mapstruct-java-internal-error-in-the-mapping-processor-java-lang)
   ![image](https://i.stack.imgur.com/QyDMc.png)
       
+   - 遇到問題 3 : Could not autowire. No beans of 'xxxxMapper' type found.
+     - 當 @Mapper 註解改使用 @Mapper(componentModel = "spring")，則可以需要使用 Mapper 的地方用 @Autowired 注入
+     - 但在注入的時候，會跳出 Could not autowire. No beans of 'xxxxMapper' type found. 的問題
+     - 解決方法 : 在 mapstruct-processor 的 dependency 底下新增 <scope>provided</scope>，因此整個 dependency 為
+       ```xml
+       <dependency>
+          <groupId>org.mapstruct</groupId>
+          <artifactId>mapstruct-processor</artifactId>
+          <version>${mapstruct.version}</version>
+          <scope>provided</scope>
+       </dependency>
+       ```
+      
+
 
 
   - [昕力 MapStruct 介紹](https://www.tpisoftware.com/tpu/articleDetails/2443) 
   - [昕力 MapStruct sourceCode](https://github.com/memory-0318/sandbox/tree/master/0003_MapStructDemo)  
   - [Mappers.getMapper 說明](https://www.itread01.com/content/1559145662.html)
+  - [Mapper 延伸(深)介紹](https://stackoverflow.com/questions/52755301/mapstruct-to-update-values-without-overwriting)
+  - [@Mapper(componentModel = "spring") 用法](https://www.jianshu.com/p/cc761b64fedb)
+  - [mapstruct test could not autowire](https://stackoverflow.com/questions/53389578/mapstruct-test-could-not-autowire-in-springboot-test)
 
 ## 補充 :
 - @Getter and @Setter 的訪問級別 (AccessLevel)

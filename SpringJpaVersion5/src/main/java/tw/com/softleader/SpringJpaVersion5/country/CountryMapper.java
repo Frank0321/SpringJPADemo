@@ -8,13 +8,11 @@ import org.mapstruct.factory.Mappers;
 
 import java.util.Collection;
 
-import static org.mapstruct.CollectionMappingStrategy.TARGET_IMMUTABLE;
-import static org.mapstruct.NullValueMappingStrategy.RETURN_DEFAULT;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface CountryMapper {
 
-    CountryMapper INSTANCE = Mappers.getMapper(CountryMapper.class);
+//    CountryMapper INSTANCE = Mappers.getMapper(CountryMapper.class);
 
     @Mappings({
             @Mapping(target = "id", source = "countryDTO.countryId"),

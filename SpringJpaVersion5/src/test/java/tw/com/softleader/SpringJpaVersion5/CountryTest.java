@@ -4,6 +4,7 @@ import org.assertj.core.groups.Tuple;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.springframework.beans.factory.annotation.Autowired;
 import tw.com.softleader.SpringJpaVersion5.country.Country;
 import tw.com.softleader.SpringJpaVersion5.country.CountryDTO;
 import tw.com.softleader.SpringJpaVersion5.country.CountryMapper;
@@ -14,7 +15,10 @@ import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class CountryTest {
+public class CountryTest extends SpringJpaVersion5ApplicationTests{
+
+    @Autowired
+    private CountryMapper countryMapper;
 
     private static Stream<Arguments> provideArguments(){
         return Stream.of(
@@ -30,7 +34,7 @@ public class CountryTest {
     @ParameterizedTest
     @MethodSource("provideArguments")
     void toDTOTest(Country country){
-        CountryDTO countryDTO = CountryMapper.INSTANCE.toDTO(country);
+        CountryDTO countryDTO = countryMapper.toDTO(country);
 
         assertThat(countryDTO)
                 .extracting(CountryDTO::getCountryId, CountryDTO::getCountryName, CountryDTO::getCountryCode, CountryDTO::getCountryArea)
@@ -40,7 +44,7 @@ public class CountryTest {
     @ParameterizedTest
     @MethodSource("provideArguments")
     void toDTOs (Country country){
-        List<CountryDTO> countryDTOList = (List<CountryDTO>) CountryMapper.INSTANCE.toDTOCollection(Collections.singletonList(country));
+        List<CountryDTO> countryDTOList = (List<CountryDTO>) countryMapper.toDTOCollection(Collections.singletonList(country));
 
         assertThat(countryDTOList)
                 .hasSize(1)
