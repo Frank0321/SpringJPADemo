@@ -12,5 +12,8 @@ public interface PersonMapper {
 
     PersonDTO toDTO (Person person);
 
+    //好像只能從 VO 轉換成 物件，不能從物件轉換成 VO
+//    PersonVO toVO (Person person);
 
+    Person fromVO(PersonVO personVO);
 }

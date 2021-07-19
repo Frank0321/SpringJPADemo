@@ -135,10 +135,7 @@
           <scope>provided</scope>
        </dependency>
        ```
-      
-
-
-
+  
   - [昕力 MapStruct 介紹](https://www.tpisoftware.com/tpu/articleDetails/2443) 
   - [昕力 MapStruct sourceCode](https://github.com/memory-0318/sandbox/tree/master/0003_MapStructDemo)  
   - [Mappers.getMapper 說明](https://www.itread01.com/content/1559145662.html)
@@ -158,3 +155,5 @@
     - [MODULE 和 PACKAGE 差異 from stackoverfloww](https://stackoverflow.com/questions/47339716/what-is-the-difference-between-accesslevel-package-and-accesslevel-module)
   - AccessLevel.NONE : 手動禁用任何欄位的 getter/setter 生成，並覆蓋類上的@Getter，@Setter或@Data註釋的行為
     - [AccessLevel.NONE 解釋 ](https://www.gushiciku.cn/pl/poFU/zh-tw)
+  
+- VO 的介紹

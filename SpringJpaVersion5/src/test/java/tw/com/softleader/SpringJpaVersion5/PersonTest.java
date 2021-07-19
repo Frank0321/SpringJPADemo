@@ -45,4 +45,6 @@ public class PersonTest {
                                  personDTO.getAge(),
                                  personDTO.getGender());
     }
+
+    //VO 的測試方法，以專案上的範例，是用 jpa 找到的資料，直接塞入 VO 裡面，然後再轉換成一般物件
 }
