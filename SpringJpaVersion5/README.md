@@ -85,9 +85,25 @@
   - 使用到的功能 :   
     - Mappers.getMapper : 自動生成的介面的實現可以通過 Mapper 的 class 物件獲取，從而讓客戶端可以訪問 Mapper 介面的實現
       - 範例寫法 : CountryMapper INSTANCE = Mappers.getMapper(CountryMapper.class);
-    - @Mapping(source="source field name", target="target field name")
+    - @Mapping(source="source field name", target="target field name", expression=java(method))
       - source : 來源的欄位，對應抽象方法 input 參數名稱 + "." + 欄位
       - target : 欄位則表示目標物件的欄位名稱
+      - expression : 會使用到 Java 寫的 method
+      - qualifiedByName : 可以定義一個方法，額外處理數值
+        ```java
+        @Mapping(source = "pm25", target = "pm25", qualifiedByName = "formatDoubleDef")
+        AreaVO areaPO2areaVO(AreaPO areaPO);
+        
+        @Named("formatDoubleDef")//需要與 qualifiedByName 的內部名稱一樣
+        default Double formatDouble(Double source) {
+            DecimalFormat decimalFormat = new DecimalFormat("0.00");//小数位格式化
+            if (source == null) {
+                source = 0.0;
+            }
+            return Double.parseDouble(decimalFormat.format(source));
+        }
+        ```
+      - ignore : ignore = true，表示跳過該欄位
     - @Mappings({...}) : 將多個@Mapping設定包裝起來
     - mapstruct-processor (dependency) : 會自動生成轉換程式碼
       - 在 target 裡面的 Mapper 位置，會自動升成一個 Impl 的 class
@@ -129,7 +145,11 @@
   - [Mapper 延伸(深)介紹](https://stackoverflow.com/questions/52755301/mapstruct-to-update-values-without-overwriting)
   - [@Mapper(componentModel = "spring") 用法](https://www.jianshu.com/p/cc761b64fedb)
   - [mapstruct test could not autowire](https://stackoverflow.com/questions/53389578/mapstruct-test-could-not-autowire-in-springboot-test)
-
+  - [MapStruct - Using expression](https://www.tutorialspoint.com/mapstruct/mapstruct_using_expression.htm)
+  - [use java code instead of mapstruct expression stackoverflow](https://stackoverflow.com/questions/67908244/use-java-code-instead-of-mapstruct-expression)
+  - [Ignoring Specific Fields](https://www.baeldung.com/mapstruct-ignore-unmapped-properties)
+  - [mapstruct的用法-qualifiedByName](https://blog.csdn.net/u010002184/article/details/85253900)
+  - [interface 中，撰寫實作方法](https://www.cnblogs.com/virgosnail/p/10111075.html)
 ## 補充 :
 - @Getter and @Setter 的訪問級別 (AccessLevel)
   - 常見的訪問級別 : PUBLIC、PROTECTED、PACKAGE、PRIVATE、MODULE、NONE
