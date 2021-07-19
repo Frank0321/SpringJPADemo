@@ -1,7 +1,7 @@
 # Spring : JPA 範例檔案
 
 此次內容包含 :
-- version1 : 使用 @Repository 的 annotation 設定 DAO 
+- version1 : 使用 @Repository 的 annotation 設定 DAO，並利用 RESTful 的方式撰寫 CRUD
 - version2 : 使用 JpaRepository interface 介面設計 DAO，以及添加 H2 DB 資料庫
 - version3 : 以及相關 swagger 設定
 - version4 : H2 DB 相關設定與 Entity 繼承關係
@@ -13,15 +13,20 @@
 
 
 ## 共用設定
-- 因為使用 RESTful 的方式操作 CRUD，為了方便進行測試，可以使用
-  - swagger
-    - 需要添增依賴，然後再網址頁面後端輸入 /swagger-ui.html
-  - Postman
-    - 可以使用網頁板，或是桌面板
-    - 輸入網址，及請求方式
-    - TODO ，補充操作方式，以及送 Requestbody 的方式  
-      - [安裝介紹](https://ithelp.ithome.com.tw/articles/10201503)
-      - [操作介紹](https://tw.alphacamp.co/blog/postman-api-tutorial-for-beginners)
+因為使用 RESTful 的方式操作 CRUD，為了方便進行測試，可以使用
+
+### swagger
+
+- 需要添增依賴
+- 然後再網址頁面後端輸入 /swagger-ui.html
+
+### Postman
+
+- 可以使用網頁板，或是桌面板
+- 輸入網址，及請求方式
+- TODO ，補充操作方式，以及送 Requestbody 的方式  
+  - [安裝介紹](https://ithelp.ithome.com.tw/articles/10201503)
+  - [操作介紹](https://tw.alphacamp.co/blog/postman-api-tutorial-for-beginners)
 
 
 ## 整組專案建置方法
@@ -53,6 +58,9 @@
     - @PostConstruct
     - @RequestMapping 等相關
     
+
+
+
 ## version2 介紹
 - 撰寫 Spring boot 的 CRUD 例子，並新增 :
   - 添加實體資料庫(Entity)
@@ -65,6 +73,9 @@
   - JPA dependency 注意事項
   - findById、getOne、findOne 這三種比較
   - Entity 中 @Column 的介紹
+  - application.properties 關於 H2 DB 簡單設定
+
+
 
 ## version3 介紹
 - 以 Spring boot 的 CRUD 例子上，新增 :
@@ -72,12 +83,26 @@
   - DAO 改成使用 interface 抽象方法撰寫
   - Controller 皆已 ResponseEntity 的方式回復 
 
+- 本章重點 :
+
+  - Controller 使用 ResponseEntity 的方式傳送資料
+
+  - Controller 用 @Operation 撰寫 swagger 上的註解
+
+  - Repository 使用抽象方法撰寫 interface
+
+  - 改使用 mariadb 設計 Entity
+
+    
+
 ## version4 介紹
 - 以 Spring boot 的 CRUD 例子上，新增 :
   - 新增 Entity 的關係、Entity 的相關設定
   - DAO 改用 @query 來設計
   - H2 DB 在 application.properties 的設定
   - application.properties 的其他設定
+- 本章重點
+  - 
 
 ## version5 介紹
 - 以 Spring boot 的 CRUD 例子上，新增資料夾購 :
@@ -104,7 +129,7 @@
 
 
 
-    
+
    - [參考1](https://www.javacodemonk.com/difference-between-getone-and-findbyid-in-spring-data-jpa-3a96c3ff)
    - [參考2](https://www.wuzhongyue.com/2018/2018-08-19-spring-data-jpa-getone-nosession.html)
 
