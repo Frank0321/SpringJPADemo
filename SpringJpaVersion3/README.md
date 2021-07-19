@@ -48,26 +48,40 @@
 3. DAO 為自己撰寫的 CURD 方法
 
 
+
 ## 介紹
-- Controller
 
-- Service
-  
-- Repository (DAO)
+### Controller TODO
 
-- UserEntity 為物件
+- 回傳資料皆以 ResponseEntity 的形式回傳
+  - ResponseEntity : ??
+- 使用 @Operation 的方式撰寫在 swaggeer 上的註解
 
-- application.properties
 
-- banner.txt
-  - 放置位置
-    ```
-    ├─main      
-    │ ├─ java             
-    │ ├─ resource      
-    │ │ ├─ application.properties
-    │ │ ├─ banner.txt
-    ```
-   - 將檔案放置此，就可以更換啟動的圖示 (好玩用) 
-   - [圖案來源](https://www.bootschool.net/ascii-art)
+
+### Service
+
+
+
+### Repository (DAO) TODO
+
+- 方法改成 interface，並用抽象方法來寫
+
+
+
+### UserEntity 為物件 TODO
+
+- 改使用其他 DB 進行轉寫 (mariadb) 
+
+
+
+### application.properties
+
+- mariadb 需要注意的設定
+
+
+
+### 修改啟動 Spring 顏色的方法
+
+
 

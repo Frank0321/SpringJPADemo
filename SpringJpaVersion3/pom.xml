@@ -43,7 +43,7 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- 新增 開啟 swagger 功能 ，網址為 : localhost:8080/swagger-ui.html-->
+		<!-- 新增 開啟 swagger 功能 ，網址為 : localhost:8083/swagger-ui.html-->
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-ui</artifactId>
