@@ -38,6 +38,7 @@
   <groupId>org.mapstruct</groupId>
   <artifactId>mapstruct-processor</artifactId>
   <version>${mapstruct.version}</version>
+  <scope>provided</scope>
 </dependency>
 ```
 
@@ -84,7 +85,7 @@
   - 使用到的功能 :   
     - Mappers.getMapper : 自動生成的介面的實現可以通過 Mapper 的 class 物件獲取，從而讓客戶端可以訪問 Mapper 介面的實現
       - 範例寫法 : CountryMapper INSTANCE = Mappers.getMapper(CountryMapper.class);
-    - @Mapping(source=<source field name>, target=<target field name>)
+    - @Mapping(source="source field name", target="target field name")
       - source : 來源的欄位，對應抽象方法 input 參數名稱 + "." + 欄位
       - target : 欄位則表示目標物件的欄位名稱
     - @Mappings({...}) : 將多個@Mapping設定包裝起來
