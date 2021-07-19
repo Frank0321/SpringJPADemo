@@ -22,6 +22,25 @@
 2. Service 為實際要處理的內容，本次內容以 CRUD 為主，因此 Service 為呼叫 DAO 執行 CRUD
 3. DAO 為自己撰寫的 CURD 方法
 
+## REST
+- Representational State Transfer 的縮寫，可譯為「具象狀態傳輸」
+- 符合 REST 風格的網站架構可以稱為 RESTful
+- 溝通的方法與規則 :
+  - GET 讀取資源*
+  - POST 新增資源*
+  - PUT 替換資源*
+  - PATCH 更換資源部分內容*
+  - DELETE 刪除資源*
+  - OPTIONS 回傳該資源所支援的所有 HTTP 請求方法
+  - CONNECT 將連線請求轉換至 TCP/IP 隧道
+- router : 路由器，負責幫每個資料封包 (packet) 選擇傳輸路徑，扮演類似交通指揮的角色。而本身 API 的功能，就是為了做資料傳輸
+- 如何設計路由 : 們會採用一套 REST 的架構風格來設計路由，RESTful 的設計以「資源」為中心，再搭配 HTTP method 的動詞，以及 CRUD 等資料操作
+  - 瀏覽全部資料：GET + 資源名稱
+  - 瀏覽特定資料：GET + 資源名稱 + :id
+  - 新增一筆資料：POST + 資源名稱
+  - 修改特定資料：PUT + 資源名稱 + :id
+  - 刪除特定資料：DELETE + 資源名稱 + :id
+
 
 ## 介紹
 - Controller
