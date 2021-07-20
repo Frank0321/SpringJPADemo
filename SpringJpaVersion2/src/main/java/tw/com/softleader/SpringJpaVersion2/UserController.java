@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.PostConstruct;
 
 @Slf4j
-@RestController
-@RequestMapping("/version2")
+//@RestController
+//@RequestMapping("/version2")
 @RequiredArgsConstructor
 public class UserController {
     /**
