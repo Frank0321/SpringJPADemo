@@ -49,6 +49,7 @@
   - @Repository : DAO
   - @Service : Service
   - @RestController : Controller   
+
 - 本章重點 :
   - RESTful 介紹
   - 依賴注入的方式
@@ -58,15 +59,14 @@
     - @PostConstruct
     - @RequestMapping 等相關
     
-
-
-
+    
 ## version2 介紹
 - 撰寫 Spring boot 的 CRUD 例子，並新增 :
   - 添加實體資料庫(Entity)
   - JpaRepository
   - Controller 接收的參數形式
   - application.properties 的初步設定  
+  
 - 本章重點 :
   - 常用的 dependency
   - Controller 接收參數的(3+1)模式，最後一種較少使用
@@ -76,7 +76,6 @@
   - application.properties 關於 H2 DB 簡單設定
 
 
-
 ## version3 介紹
 - 以 Spring boot 的 CRUD 例子上，新增 :
   - 添增在 swagger 上面的顯示註解
@@ -84,16 +83,11 @@
   - Controller 皆已 ResponseEntity 的方式回復 
 
 - 本章重點 :
-
   - Controller 使用 ResponseEntity 的方式傳送資料
-
   - Controller 用 @Operation 撰寫 swagger 上的註解
-
   - Repository 使用抽象方法撰寫 interface
-
   - 改使用 mariadb 設計 Entity
 
-    
 
 ## version4 介紹
 - 以 Spring boot 的 CRUD 例子上，新增 :
@@ -102,33 +96,27 @@
   - H2 DB 在 application.properties 的設定
   - application.properties 的其他設定
 - 本章重點
-  - 
+  - application.properties 關於資料庫的相關設定
+  - @Entity 的繼承關係
+  - 統一修改 Entity 的設計方式
+  - n + 1 selection 的問題
+  - @query 撰寫 DAO 查詢的方式
 
 ## version5 介紹
 - 以 Spring boot 的 CRUD 例子上，新增資料夾購 :
   - request -> dto -> entity
   - Entity -> dto -> response
   - Exception 處理  
+
+- 本章重點 :
+  - 介紹 MapStruct 的使用
+  - 
 - 解釋相關資訊
 - [POJO、PO、DTO、VO、BO](https://hackmd.io/@MonsterLee/HJyAdgRBB)
 
 ## 參考資料
 - [新手工程師程式教室](https://chikuwa-tech-study.blogspot.com/2021/05/spring-boot-create-project.html)
   - Spring boot 共 20 文章
-- [十分鐘快速掌握 Markdown](https://wcc723.github.io/development/2019/11/23/ten-mins-learn-markdown/#%E5%AD%B8%E7%BF%92-Markdown)
-- [Markdown 編輯方式，it邦](https://ithelp.ithome.com.tw/articles/10203758?sc=iThelpR)
-- test
-
-
-
-
-
-
-
-
-
-
-
 
    - [參考1](https://www.javacodemonk.com/difference-between-getone-and-findbyid-in-spring-data-jpa-3a96c3ff)
    - [參考2](https://www.wuzhongyue.com/2018/2018-08-19-spring-data-jpa-getone-nosession.html)
