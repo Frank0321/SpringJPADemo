@@ -38,6 +38,40 @@ H2 DB 相關設定與 Entity 繼承關係等其他設定
   - [@Column 參數](https://kknews.cc/zh-tw/code/2bv6v5y.html)
   - [@Column 參數，官方文件](https://docs.oracle.com/javaee/5/api/javax/persistence/Column.html)
   
+## application.properties 的相關設定
+- 資料庫相關設定 (H2 為範例)
+  - spring.datasource.driver-class-name=org.h2.Driver
+    - 設定為使用 H2 DB (有些時候可能會不只有一個DB)
+  - spring.h2.console.enabled=true
+    - 設定可以網頁上，開啟 H2 DB
+  - spring.datasource.url=jdbc:h2:mem:spring-boot-demo
+    - 固定 DB 連線的網址(url)
+  - spring.jpa.show-sql=true
+    - 啟動 spring 時，底下 console 會秀出 SQL 指令
+  - spring.datasource.username=frank 
+    - 設定帳號
+   - spring.datasource.password=12345
+     - 設定密碼
+- 設定 connection pool
+  - spring boot 2.x 之後，預計的連線池為 hikariCP 連線池，相關依賴可參考官網的連結，常見的設定如下 : 
+    - spring.datasource.hikari.minimum-idle=10                  
+      - 最小空閒連線
+    - spring.datasource.hikari.maximum-pool-size=20             
+      - 最大連線數
+    - spring.datasource.hikari.idle-timeout=500000              
+      - 空閒連線超時時間，預設值600000（10分鐘）
+    - spring.datasource.hikari.max-lifetime=540000              
+      - 連線最大存活時間，不等於0且小於30秒
+    - spring.datasource.hikari.connection-timeout=60000         
+      - 連線超時時間：毫秒
+    - spring.datasource.hikari.connection-test-query=SELECT 1   
+      - 用於測試連線是否可用的查詢語句
+  
+    
+  - [spring boot 預設連線池 菜鳥工程師](https://matthung0807.blogspot.com/2021/01/spring-boot-default-jdbc-connection-pool.html)
+  - [Hikari的配置詳解](https://www.gushiciku.cn/pl/p44q/zh-tw)
+  - [springBoot默认HikariDataSource配置](http://www.lanxinbase.com/?p=2482)
+  - [HikariCP 官網介紹](https://github.com/brettwooldridge/HikariCP)
 - 主鍵聲明
   - @Id : 聲明此屬性為主鍵
   - @GeneratedValue : 自動新增數值
