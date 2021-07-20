@@ -11,7 +11,7 @@
 
 ## 使用的依賴 (dependency)
 ```javascript
-<!-- 新增 開啟 swagger 功能 ，網址為 : localhost:8081/swagger-ui.html-->
+<!-- 新增 開啟 swagger 功能 ，網址為 : localhost:8083/swagger-ui.html-->
 <dependency>
     <groupId>org.springdoc</groupId>
     <artifactId>springdoc-openapi-ui</artifactId>
@@ -64,9 +64,12 @@
 
 
 ### Repository (DAO) TODO
+- 除了 Repository 這一個 interface 所支援的的抽象方法之外，另外也可以自行撰寫簡單的查詢方法
+- 由方法名稱撰寫查詢的方法
+  - findBy .... And ...
+  - 好像一次回傳，就是傳回一個物件 ?!
 
-- 方法改成 interface，並用抽象方法來寫
-
+- [Spring data JPA](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#reference)
 
 
 ### UserEntity 為物件 TODO

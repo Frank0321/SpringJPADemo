@@ -1,4 +1,4 @@
-package tw.com.softleader.SpringJpaVersion3;
+package tw.com.softleader.SpringJpaVersion3.Policy;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

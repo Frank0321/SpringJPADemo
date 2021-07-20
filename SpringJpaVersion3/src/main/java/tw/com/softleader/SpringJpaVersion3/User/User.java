@@ -1,4 +1,4 @@
-package tw.com.softleader.SpringJpaVersion3;
+package tw.com.softleader.SpringJpaVersion3.User;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;

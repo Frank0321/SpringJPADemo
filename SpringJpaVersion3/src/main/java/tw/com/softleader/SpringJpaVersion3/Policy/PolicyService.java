@@ -1,4 +1,4 @@
-package tw.com.softleader.SpringJpaVersion3;
+package tw.com.softleader.SpringJpaVersion3.Policy;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -16,8 +16,8 @@ public class PolicyService {
         return policyRepository.findPolicyEntityByEndstNo(endstNo);
     }
 
-    public Optional<PolicyEntity> findByByQuotationNo (String quotationNo){
-        return policyRepository.findByQuotationNo(quotationNo);
+    public Collection<PolicyEntity> findQuotationNoByQuotationNo (String quotationNo){
+        return policyRepository.findQuotationNoByQuotationNo(quotationNo);
     }
 
     public Optional<PolicyEntity> findByPolicyNo(String policyNo){
@@ -26,5 +26,9 @@ public class PolicyService {
 
     public void save(PolicyEntity policyEntity){
         policyRepository.save(policyEntity);
+    }
+
+    public Collection<PolicyEntity> findPolicyNoNotNull(){
+        return policyRepository.findPolicyEntityByPolicyNoIsNotNull();
     }
 }

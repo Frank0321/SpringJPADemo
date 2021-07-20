@@ -1,4 +1,4 @@
-package tw.com.softleader.SpringJpaVersion3;
+package tw.com.softleader.SpringJpaVersion3.User;
 
 import org.springframework.stereotype.Repository;
 

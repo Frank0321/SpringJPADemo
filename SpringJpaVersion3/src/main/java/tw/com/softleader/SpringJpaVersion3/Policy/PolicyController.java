@@ -1,13 +1,14 @@
-package tw.com.softleader.SpringJpaVersion3;
+package tw.com.softleader.SpringJpaVersion3.Policy;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
+import java.util.Collection;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/version3")
+@RequestMapping("/version3/policy")
 public class PolicyController {
 
     final PolicyService policyService;
@@ -29,5 +30,15 @@ public class PolicyController {
     public PolicyEntity findByPolicyNo (
             @RequestParam (value = "policyNo", required = false, defaultValue = "保單號_01") String policyNo){
         return policyService.findByPolicyNo(policyNo).orElse(null);
+    }
+
+    @GetMapping("/NotNull")
+    public Collection<PolicyEntity> findPolicyNoNotNull (){
+        return policyService.findPolicyNoNotNull();
+    }
+
+    @GetMapping("/quotataionNo")
+    public Collection<PolicyEntity> findQuotationNo (@RequestParam(value = "quotationNo") String quotationNo){
+        return policyService.findQuotationNoByQuotationNo(quotationNo);
     }
 }

@@ -1,4 +1,4 @@
-package tw.com.softleader.SpringJpaVersion3;
+package tw.com.softleader.SpringJpaVersion3.User;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
