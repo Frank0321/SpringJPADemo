@@ -97,6 +97,7 @@
   - application.properties 的其他設定
 - 本章重點
   - application.properties 關於資料庫的相關設定
+    - 含 hikari 設定 (gary 寫的第二章)
   - @Entity 的繼承關係
   - 統一修改 Entity 的設計方式
   - n + 1 selection 的問題
