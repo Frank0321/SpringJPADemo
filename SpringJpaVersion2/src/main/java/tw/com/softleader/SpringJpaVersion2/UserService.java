@@ -24,6 +24,7 @@ public class UserService {
     public UserEntity findById(Long id) {
         // 使用 getById 需要再處理 Exception 的問題
         return userRepository.findById(id).orElse(null);
+//        return userRepository.getOne(id);
     }
 
     public void save(UserEntity userEntity){

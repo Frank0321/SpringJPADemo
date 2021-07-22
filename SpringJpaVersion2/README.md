@@ -120,7 +120,8 @@
 - 找尋一筆資料的方式可分成 : findById、getOne、findOne 這三種
 - findById() : 會立刻訪問資料庫，回傳指定 ID 的實體物件(Optional<T>)，如果沒有資料則回傳 Optional.empty()
 - getOne() : 是一個延遲加載的方法，並不會立刻訪問資料庫，而是回傳一個代理對象，
-  只有當代理對象訪問屬性時，才會連線資料庫，找不到則會回傳一個 EntityNotFoundException
+  只有當代理對象訪問屬性時，才會連線資料庫，找不到則會回傳一個 EntityNotFoundException。
+  直接使用的情況下，會跳出 InvalidDefinitionException 的訊息。
 - findOne() : 用於動態購艦多條件查詢的場景中，為立即連線資料庫，並回傳 Optional 的物件
 - Optional 物件，需處理 null 的問題，常見的處理方式為添加 orElse() 如範例 : 
   - userRepository.findById(id).orElse(null)
