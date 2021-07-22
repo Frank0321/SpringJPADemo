@@ -51,11 +51,14 @@
 
 ## 介紹
 
-### Controller TODO
+### Controller 
 
 - 回傳資料皆以 ResponseEntity 的形式回傳
   - ResponseEntity : ??
 - 使用 @Operation 的方式撰寫在 swaggeer 上的註解
+  - summary : API 的標題
+  - description : API 的詳細描述
+  - [operation 說明](https://waynestalk.com/springdoc-openapi-tutorial/)
 
 
 
@@ -63,11 +66,11 @@
 
 
 
-### Repository (DAO) TODO
+### Repository (DAO) 
 - 除了 Repository 這一個 interface 所支援的的抽象方法之外，另外也可以自行撰寫簡單的查詢方法
 - 由方法名稱撰寫查詢的方法
   - findBy .... And ...
-  - 好像一次回傳，就是傳回一個物件 ?!
+  - 好像一次回傳，就是傳回一個物件 ?! 或是一個 Collection<T>
 
 - [Spring data JPA](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#reference)
 

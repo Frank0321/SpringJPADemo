@@ -8,10 +8,6 @@ import java.util.HashSet;
 
 import static java.lang.String.format;
 
-/**
- * TODO : 改用 interface 來寫，並寫上抽象方法
- * TODO : 使用 @Query 來設計
- */
 @Repository
 public class UserRepository {
 
