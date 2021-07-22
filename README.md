@@ -27,7 +27,21 @@
 - TODO ，補充操作方式，以及送 Requestbody 的方式  
   - [安裝介紹](https://ithelp.ithome.com.tw/articles/10201503)
   - [操作介紹](https://tw.alphacamp.co/blog/postman-api-tutorial-for-beginners)
-
+  
+### interlliJ 的 Open in HTTP Client
+- 使用方法 : 
+  1. 啟動專案
+  2. 專案旁邊的按鈕，點下去
+  3. 就可以模擬網頁輸入
+  - 以 post 的方式輸入為(參考) : 
+  ```xml
+  POST http://example.com:8080/api/html/post 
+  Content-Type: application/json 
+  { "key" : "value", "list": [1, 2, 3] }
+  ```
+- [參考 1](https://www.jetbrains.com/help/idea/exploring-http-syntax.html#compose-several-requests-in-a-file)
+- [參考 2](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html)
+- [參考 3](https://blog.jetbrains.com/idea/2020/09/at-your-request-use-the-http-client-in-intellij-idea-for-spring-boot-restful-web-services/)
 
 ## 整組專案建置方法
 1. Project Settings -> Modules 
