@@ -53,7 +53,13 @@ H2 DB 相關設定與 Entity 繼承關係等其他設定
    - spring.datasource.password=12345
      - 設定密碼
 - 設定 connection pool
-  - spring boot 2.x 之後，預計的連線池為 hikariCP 連線池，相關依賴可參考官網的連結，常見的設定如下 : 
+  - spring boot 2.x 之後，預計的連線池為 hikariCP 連線池
+     - 位置在 
+       spring-boot-starter-data-jpa -> 
+       spring-boot-starter-jdbc ->
+       HikariCP。
+       使用 Maven helper 才能清楚看到目錄
+  - hikariCP 相關依賴可參考官網的連結，常見的設定如下 : 
     - spring.datasource.hikari.minimum-idle=10                  
       - 最小空閒連線
     - spring.datasource.hikari.maximum-pool-size=20             
