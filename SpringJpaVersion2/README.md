@@ -154,16 +154,16 @@
 
 ### application.properties
 
-  - 修改 port 
+- 修改 port 
 
-  - 顯示 H2
-    - spring.h2.console.enabled 必須設為 true 開啟 web console 功能
-    
-  - 設定 H2
-    - 注意 Spring Boot 2.3.0 開始 spring.datasource.generate-unique-name 預設為 true，
-      因此H2資料庫名稱是亂數產生，不再為預設的 testdb，
-      所以設定 spring.datasource.url=jdbc:h2:mem:testdb 指定資料庫名稱為 testdb
-      <br></br>
+- 顯示 H2
+- spring.h2.console.enabled 必須設為 true 開啟 web console 功能
+
+- 設定 H2
+- 注意 Spring Boot 2.3.0 開始 spring.datasource.generate-unique-name 預設為 true，
+  因此H2資料庫名稱是亂數產生，不再為預設的 testdb，
+  所以設定 spring.datasource.url=jdbc:h2:mem:testdb 指定資料庫名稱為 testdb
+  <br></br>
 
   ```
   #設定 true 之後，才可以在網頁上開啟資料庫
@@ -172,7 +172,16 @@
   #固定 h2 連線網址
   spring.datasource.url=jdbc:h2:mem:testdb
   ```
-
+- 設定 log 層級
+  - logging.level.tw.com.softleader=DEBUG
+  - 層級主要分 :   
+    1. TRACE
+    2. DEBUG
+    3. INFO
+    4. WARN
+    5. ERROR
+    6. FATAL  
+    
   
 
 ### banner.txt
