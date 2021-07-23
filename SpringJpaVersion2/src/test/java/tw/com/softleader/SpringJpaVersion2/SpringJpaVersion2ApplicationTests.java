@@ -9,8 +9,11 @@ class SpringJpaVersion2ApplicationTests {
 
 	@Test
 	void contextLoads() {
-		log.info("log info print");
+		log.trace("log trace print");
 		log.debug("log debug print");
+		log.info("log info print");
+		log.warn("log warn print");
+		log.error("log error print");
 	}
 
 }
