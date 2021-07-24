@@ -84,7 +84,7 @@
 
 ### Service
 
-- @RequiredArgsConstructor : 生成一個包含 final 變量的建構子
+- @RequiredArgsConstructor : 生成一個包含 final 變量的建構子(不一定要 final)
 - Page<T> 用法 : 參考範例程式，常使用到三個參數 :
   - root 用來定義跟哪個欄位比對
   - query : top level query 通常用不到，先忽略
