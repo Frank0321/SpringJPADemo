@@ -128,7 +128,7 @@
 - 禁止使用 getOne()，需要使用到延遲加載時，才會使用到
 - [findById、getOne、findOne 的差異](https://www.cnblogs.com/ktgu/p/13772236.html)
 - [stackoverfloww 解釋 getOne & findOne](https://stackoverflow.com/questions/24482117/when-use-getone-and-findone-methods-spring-data-jpa)
-
+- [Spring-data-jpa訪問資料庫](https://morosedog.gitlab.io/springboot-20190328-springboot14/)
 
 
 
