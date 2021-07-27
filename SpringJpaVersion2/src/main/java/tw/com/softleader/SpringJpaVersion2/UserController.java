@@ -26,14 +26,6 @@ public class UserController {
                     .builder().name("name" + i).mail("email").phone("0987654321").build());
         }
     }
-    /**
-     * @param pageable
-     * url可用localhost:8082/version2?page={頁數}指定查詢第幾頁
-     * page,第幾頁
-     * size,每一頁大小
-     * sort,排序
-     * https://blog.csdn.net/lem14/article/details/111614713
-     */
     @Operation(summary = "查詢全部資料，已分頁呈現")
     @GetMapping
     public Page<UserEntity> findAll(Pageable pageable){
