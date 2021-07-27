@@ -96,7 +96,7 @@
   <br>
   
 - [元件的運用與交互關係，元件的注入](https://chikuwa-tech-study.blogspot.com/2021/05/spring-boot-bean-introduction.html)
-
+- [Spring 使用@Autowired依賴注入物件](https://matthung0807.blogspot.com/2018/08/spring-autowired.html)
 - [三種注入的方式介紹](https://blog.csdn.net/zhangjingao/article/details/81094529)     
 
 

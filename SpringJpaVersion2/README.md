@@ -82,6 +82,28 @@
 - [@RequestBody 與 @ModelAttribute 區別](https://blog.csdn.net/qq_42684642/article/details/83058211)
 <br></br>
 
+- 查詢分頁方法 :
+  - 程式碼片段
+    ```java
+    public Page<UserEntity> findAll(Pageable pageable){
+        return userService.findAll(pageable);
+    }
+    ```
+  - 傳入的參數為 Pageable 物件，主要包含三個參數
+    - page : 第幾頁，第一頁從 0 開始
+    - size : 每一頁幾筆
+    - sort : 排序
+  - 以 url 的參數呈現 : http://localhost:8082/version2?page=0&size=10&sort=id
+  - 或是輸入url : http://localhost:8082/version2?page=0
+    - pageSize : default 為 20
+    - sort : false
+  - 回傳的內容，主要會再放 content 這一個陣列中
+  - Pageable 為 interface，常會使用 PageImpl、PageRequest 來產生 Pageable 物件
+  - 可以使用 swagger 確認網址以及回傳內容
+  - TODO : 資料來源  
+  - [Spring支持的request參數](https://blog.csdn.net/lem14/article/details/111614713)
+    
+
 ### Service
 
 - @RequiredArgsConstructor : 生成一個包含 final 變量的建構子(不一定要 final)
@@ -149,15 +171,7 @@
    - precision : 精度，有效位數幾位
    - scale : 精度，小數位數的總位數
    - [參考](https://fanlychie.github.io/post/jpa-column-annotation.html)
-
-### pageable 參數
-- 使用方法
-  - url 可用 localhost:8082/version2?page={頁數} 指定查詢第幾頁，其他參數如下 : 
-    - page : 第幾頁  
-    - size : 每一頁幾筆  
-    - sort : 排序  
-  [Spring支持的request參數](https://blog.csdn.net/lem14/article/details/111614713)
-
+  
 
 ### application.properties
 
