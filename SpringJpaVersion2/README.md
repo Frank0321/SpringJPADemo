@@ -150,7 +150,14 @@
    - scale : 精度，小數位數的總位數
    - [參考](https://fanlychie.github.io/post/jpa-column-annotation.html)
 
-### 
+### pageable 參數
+- 使用方法
+  - url 可用 localhost:8082/version2?page={頁數} 指定查詢第幾頁，其他參數如下 : 
+    - page : 第幾頁  
+    - size : 每一頁幾筆  
+    - sort : 排序  
+  [Spring支持的request參數](https://blog.csdn.net/lem14/article/details/111614713)
+
 
 ### application.properties
 
