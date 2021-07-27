@@ -37,6 +37,7 @@
   ```xml
   POST http://example.com:8080/api/html/post 
   Content-Type: application/json 
+  
   { "key" : "value", "list": [1, 2, 3] }
   ```
 - [參考 1](https://www.jetbrains.com/help/idea/exploring-http-syntax.html#compose-several-requests-in-a-file)
@@ -88,6 +89,12 @@
   - findById、getOne、findOne 這三種比較
   - Entity 中 @Column 的介紹
   - application.properties 關於 H2 DB 簡單設定
+  - @param pageable  
+    url可用localhost:8082/version2?page={頁數}指定查詢第幾頁  
+    page,第幾頁  
+    size,每一頁大小  
+    sort,排序  
+    [Spring支持的request參數](https://blog.csdn.net/lem14/article/details/111614713)
 
 
 ## version3 介紹
