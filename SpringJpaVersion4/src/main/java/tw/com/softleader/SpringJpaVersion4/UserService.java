@@ -1,15 +1,11 @@
 package tw.com.softleader.SpringJpaVersion4;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+import tw.com.softleader.SpringJpaVersion4.Extends.EmployEntity;
+import tw.com.softleader.SpringJpaVersion4.Extends.UserEntity;
 
 import javax.annotation.PostConstruct;
-import javax.persistence.criteria.Predicate;
-import java.util.ArrayList;
-import java.util.List;
 
 import static java.lang.String.format;
 

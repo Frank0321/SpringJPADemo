@@ -1,12 +1,11 @@
-package tw.com.softleader.SpringJpaVersion4;
+package tw.com.softleader.SpringJpaVersion4.Extends;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
+import tw.com.softleader.SpringJpaVersion4.Extends.UserEntity;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 
 @Entity
@@ -14,7 +13,7 @@ import javax.persistence.Entity;
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
-public class EmployEntity extends UserEntity{
+public class EmployEntity extends UserEntity {
 
     String employNo;
 

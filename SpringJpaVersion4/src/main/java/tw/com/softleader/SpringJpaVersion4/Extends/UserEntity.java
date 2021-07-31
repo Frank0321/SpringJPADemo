@@ -1,4 +1,4 @@
-package tw.com.softleader.SpringJpaVersion4;
+package tw.com.softleader.SpringJpaVersion4.Extends;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
