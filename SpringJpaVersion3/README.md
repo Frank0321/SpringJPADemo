@@ -99,7 +99,8 @@
 
   }
   ```
-
+- [Spring boot 自定義隱式 json 反射程序](https://segmentfault.com/a/1190000010677072)
+- [Jackson2ObjectMapperBuilderCustomizer stackoverflow](https://stackoverflow.com/questions/49237867/how-to-enable-global-default-typing-in-jackson-via-jackson2objectmapperbuilde)
 
 ### 修改啟動 Spring 顏色的方法
 
