@@ -34,9 +34,12 @@ H2 DB 相關設定與 Entity 繼承關係等其他設定
   - precision和scale : precision屬性和scale屬性表示精度，當欄位類型為double時 :
     - precision表示數值的總長度
     - scale表示小數點所占的位數
+- @Embedded 的用法
+
   - [參考1](https://ithelp.ithome.com.tw/articles/10194906)
   - [@Column 參數](https://kknews.cc/zh-tw/code/2bv6v5y.html)
   - [@Column 參數，官方文件](https://docs.oracle.com/javaee/5/api/javax/persistence/Column.html)
+  - [Hibernate中@Embedded和@Embeddable注解的使用](https://blog.csdn.net/lmy86263/article/details/52108130
   
 ## application.properties 的相關設定
 - 資料庫相關設定 (H2 為範例)
