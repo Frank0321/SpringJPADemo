@@ -1,11 +1,14 @@
 package tw.com.softleader.SpringJpaVersion3.Policy;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
+import java.time.LocalDate;
 import java.util.Collection;
 
+@Slf4j
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/version3/policy")
@@ -22,6 +25,7 @@ public class PolicyController {
                     .policyNo("保單號_0"+ i)
                     .endstNo(0)
                     .seq(1)
+                    .date(LocalDate.now())
                     .build());
         }
     }
@@ -40,5 +44,11 @@ public class PolicyController {
     @GetMapping("/quotataionNo")
     public Collection<PolicyEntity> findQuotationNo (@RequestParam(value = "quotationNo") String quotationNo){
         return policyService.findQuotationNoByQuotationNo(quotationNo);
+    }
+
+    @PostMapping
+    public void createPolicy(@RequestBody PolicyEntity policyEntity){
+        policyService.save(policyEntity);
+        log.info("policyEntity : {}", policyEntity);
     }
 }

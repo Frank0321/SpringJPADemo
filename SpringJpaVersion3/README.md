@@ -85,6 +85,20 @@
 
 - mariadb 需要注意的設定
 
+### 修改時間格式
+- 預設以 JSON 回傳的時間格式為 2021-08-06，是 ISO 的標準格式
+- 希望回傳為其他的格式，則需要在 Spring 的啟動程式，加上 :
+  ```java
+  @Bean
+  public Jackson2ObjectMapperBuilderCustomizer jackson2ObjectMapperBuilderCustomizer(){
+      return builder -> builder
+              //修改回傳的時間格式
+              .serializers(new LocalDateSerializer(DateTimeFormatter.ofPattern("yyyy/MM/dd")))
+              //修改傳入的時間格式
+              .deserializers(new LocalDateDeserializer(DateTimeFormatter.ofPattern("yyyy/MM/dd")));
+
+  }
+  ```
 
 
 ### 修改啟動 Spring 顏色的方法
