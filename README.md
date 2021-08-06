@@ -18,8 +18,17 @@
 ### swagger
 
 - 需要添增依賴
+  ```xml
+  <dependency>
+    <groupId>org.springdoc</groupId>
+    <artifactId>springdoc-openapi-ui</artifactId>
+    <version>1.5.9</version>
+  </dependency>
+  ```
 - 然後再網址頁面後端輸入 /swagger-ui.html
 
+- [OpenAPI 的官網](https://www.baeldung.com/spring-rest-openapi-documentation)
+- [OpenAPI 的註解](https://springdoc.org/#migrating-from-springfox)
 ### Postman
 
 - 可以使用網頁板，或是桌面板
