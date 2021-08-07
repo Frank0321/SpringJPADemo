@@ -78,8 +78,20 @@
 ### UserEntity 為物件 TODO
 
 - 改使用其他 DB 進行轉寫 (mariadb) 
-
-
+- 新增資料驗證功能 (JSR-303)
+  - 需要先加入驗證的 dependency
+    ```xml
+     <!-- 新增驗證功能 -->
+      <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-validation</artifactId>
+          <version>2.4.1</version>
+      </dependency>
+    ```
+  - 在欄位前面標註 @NotNull 等
+  - 需要 import 的為 javax.validation.constraints
+  - 在 import 中的 constraints，用 ctrl + 右鍵，可以進去看看有那些驗證的方法
+  - @NotBlank 包含 @NotNull
 
 ### application.properties
 

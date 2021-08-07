@@ -22,7 +22,6 @@ public class UserEntity {
     @GeneratedValue
     private Long id;
 
-    @NotBlank
     @Column(name = "abc")    //在DB 此欄位表示 abc 的欄位
     private String name;
 

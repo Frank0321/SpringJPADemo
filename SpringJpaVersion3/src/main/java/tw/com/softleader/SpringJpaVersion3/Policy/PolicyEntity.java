@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Entity
@@ -20,12 +22,14 @@ public class PolicyEntity {
     @GeneratedValue
     private Long id;
 
+    @NotNull
     private String policyNo;
 
     private int endstNo;
 
     private int seq;
 
+    @NotBlank
     private String quotationNo;
 
     private LocalDate date;
