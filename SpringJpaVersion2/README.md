@@ -119,6 +119,7 @@
 
 ### Repository(DAO) 
 - 常使用 interface
+- 可以繼承 JpaRepository 或是 CrudRepository，比較常繼承 JpaRepository (方法較多)
 
 - 使用到 JPA dependency 的時候，會自動配置 DataSource，否則會 :
   org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException，
