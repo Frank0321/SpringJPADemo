@@ -22,11 +22,11 @@ public class TeacherController {
                 .id(1L)
                 .name("Rhys")
                 .teacherId("teacher1")
-//                .students(List.of(StudentEntity.builder()
-//                        .id(23L)
-//                        .name("Jojo")
-//                        .studentId("student")
-//                        .build()))
+                .students(List.of(StudentEntity.builder()
+                        .id(23L)
+                        .name("Jojo")
+                        .studentId("student")
+                        .build()))
                 .build();
         log.info(teacherEntity.toString());
         teacherRepository.save(teacherEntity);
