@@ -1,8 +1,6 @@
 package tw.com.softleader.SpringJpaVersion4.Extends;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 import tw.com.softleader.SpringJpaVersion4.Extends.UserEntity;
 

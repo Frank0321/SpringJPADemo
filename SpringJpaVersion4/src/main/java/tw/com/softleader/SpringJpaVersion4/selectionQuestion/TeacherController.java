@@ -15,20 +15,30 @@ import java.util.List;
 public class TeacherController {
 
     final TeacherRepository teacherRepository;
+    final StudentRepository studentRepository;
 
-    @GetMapping("/save")
-    public void saveDate(){
+    @GetMapping("/saveTeacher")
+    public String saveData1(){
         TeacherEntity teacherEntity = TeacherEntity.builder()
                 .id(1L)
                 .name("Rhys")
                 .teacherId("teacher1")
-                .students(List.of(StudentEntity.builder()
-                        .id(23L)
-                        .name("Jojo")
-                        .studentId("student")
-                        .build()))
                 .build();
         log.info(teacherEntity.toString());
         teacherRepository.save(teacherEntity);
+
+        return teacherEntity.toString();
     }
+
+    @GetMapping("/saveStudent")
+    public String saveData2(){
+        StudentEntity studentEntity = StudentEntity.builder()
+                .id(2L)
+                .name("matt")
+                .studentId("studentId")
+                .build();
+        studentRepository.save(studentEntity);
+        return studentEntity.toString();
+    }
+
 }

@@ -97,5 +97,8 @@ H2 DB 相關設定與 Entity 繼承關係等其他設定
 ###  entities share the same JPA entity name
 - 在檔案移動到內部資料夾時，可能因為先前建立的 target 的關係，導致會有 class 衝突，先用 maven clean 清除
 
-### class of the given object did not match class of persistent copy
+### Object [id=null] was not of the specified subclass
 - 一樣 maven clean
+- 或是加上關聯性 
+- [satckoverflow 解法(翻譯成中文)](https://www.coder.work/article/1332641)
+- [satckoverflow 解法](https://stackoverflow.com/questions/43848721/wrongclassexception-object-id-null-was-not-of-the-specified-subclass)
