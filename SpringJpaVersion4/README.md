@@ -93,3 +93,6 @@ H2 DB 相關設定與 Entity 繼承關係等其他設定
   - @ManyToMany
   - @JoinTable
   
+## 突發錯誤
+###  entities share the same JPA entity name
+- 在檔案移動到內部資料夾時，可能因為先前建立的 target 的關係，導致會有 class 衝突，先用 maven clean 清除

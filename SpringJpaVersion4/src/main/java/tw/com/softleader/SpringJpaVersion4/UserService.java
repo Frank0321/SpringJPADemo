@@ -32,6 +32,7 @@ public class UserService {
                 .build());
 
         userRepository.save(EmployEntity.builder()
+                .id(12L)
                 .employNo("A")
                 .employEmail("email")
                 .build());
