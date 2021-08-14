@@ -95,8 +95,10 @@
   - 通常在 Controller 中進行驗證 (在範例的 PostMapping)
   - 在參數前方加上 @Valid 就可以了
   - 可以利用 BindingResult 將錯誤訊息列印出來
+  - BindingResult 是用來保存驗證和綁定結果  
   
   - [BindingResult验证框架](https://blog.csdn.net/clypm/article/details/69382766)
+  - [BindingResult 說明](https://geek-docs.com/spring/spring-tutorials/bindingresult.html)
 
 
 ### application.properties
