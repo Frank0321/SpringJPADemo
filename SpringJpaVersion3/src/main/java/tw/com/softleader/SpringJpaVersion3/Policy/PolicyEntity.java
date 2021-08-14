@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
@@ -27,6 +28,7 @@ public class PolicyEntity {
 
     private int endstNo;
 
+    @Min(value = 0, message = "SEQ 最小值不能小於 0")
     private int seq;
 
     @NotBlank

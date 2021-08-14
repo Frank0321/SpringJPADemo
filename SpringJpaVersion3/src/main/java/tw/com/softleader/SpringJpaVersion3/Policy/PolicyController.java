@@ -2,11 +2,16 @@ package tw.com.softleader.SpringJpaVersion3.Policy;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
+import javax.validation.Valid;
 import java.time.LocalDate;
 import java.util.Collection;
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -47,8 +52,20 @@ public class PolicyController {
     }
 
     @PostMapping
-    public void createPolicy(@RequestBody PolicyEntity policyEntity){
-        policyService.save(policyEntity);
-        log.info("policyEntity : {}", policyEntity);
+    public void createPolicy(@RequestBody @Valid PolicyEntity policyEntity, BindingResult result){
+        if (result.hasErrors()){
+            List<ObjectError> errors = result.getAllErrors();
+            for(ObjectError error : errors){
+                log.info("error message : {} ", error.getDefaultMessage());
+            }
+        }else {
+            policyService.save(policyEntity);
+            log.info("policyEntity : {}", policyEntity);
+        }
+    }
+
+    @GetMapping("/endstNo")
+    public PolicyEntity findAllByEndstNo (@RequestParam(value = "endstNo") int endstNo){
+        return policyService.findByEndstNo(endstNo);
     }
 }
