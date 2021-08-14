@@ -12,8 +12,8 @@ public class PolicyService {
 
     final PolicyRepository policyRepository;
 
-    public Collection<PolicyEntity> findByEndstNo (int endstNo){
-        return policyRepository.findPolicyEntityByEndstNo(endstNo);
+    public PolicyEntity findByEndstNo (int endstNo){
+        return policyRepository.findByEndstNo(endstNo).orElse(null);
     }
 
     public Collection<PolicyEntity> findQuotationNoByQuotationNo (String quotationNo){

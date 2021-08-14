@@ -92,6 +92,12 @@
   - 需要 import 的為 javax.validation.constraints
   - 在 import 中的 constraints，用 ctrl + 右鍵，可以進去看看有那些驗證的方法
   - @NotBlank 包含 @NotNull
+  - 通常在 Controller 中進行驗證 (在範例的 PostMapping)
+  - 在參數前方加上 @Valid 就可以了
+  - 可以利用 BindingResult 將錯誤訊息列印出來
+  
+  - [BindingResult验证框架](https://blog.csdn.net/clypm/article/details/69382766)
+
 
 ### application.properties
 

@@ -8,7 +8,7 @@ import java.util.Optional;
 public interface PolicyRepository extends JpaRepository<PolicyEntity, Long> {
 
     //利用 endstNo 找尋 PolicyEntity 物件s
-    Collection<PolicyEntity> findPolicyEntityByEndstNo (int endstNo);
+    Optional<PolicyEntity> findByEndstNo (int endstNo);
 
     //利用報價單找尋 PolicyEntity
     Collection<PolicyEntity> findQuotationNoByQuotationNo (String quotationNo);
