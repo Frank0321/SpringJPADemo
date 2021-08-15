@@ -58,8 +58,27 @@
   
 - Repository (DAO)
   - 繼承 Specification，並在 PolicyTest 進行測試
-    
-  - [JPA 使用 Specification 复杂查询和 Criteria 查询](https://blog.wuwii.com/jpa-specification.html)JPA 使用 Specification 复杂查询和 Criteria 查询
+  - root, criteriaQuery, criteriaBuilder 三個參數的用法 :
+  1. 先建立一個 List<Predicate> 的物件，擺放要查詢的條件
+     ```java
+     List<Predicate> predicateList = new ArrayList<>();
+     ```
+  2. 建立要查詢的條件 (where 的內容)
+     - 通常先確認有這個條件值存在 (name != null)
+     - 建立搜尋條件的寫法，並加到 list 中
+     ```java
+     if (!StringUtils.isEmpty(policy.getPolicyNo())){
+                Predicate policyPredicate = criteriaBuilder.equal(root.get("policyNo"), policy.getPolicyNo());
+                predicateList.add(policyPredicate);
+            }
+     ```
+  3. 組合成查詢條件，並回傳為一個 specification 物件
+     ```java
+     Predicate[] predicates = new Predicate[predicateList.size()];
+     return criteriaBuilder.and(predicateList.toArray(predicates));
+     ```
+  - [Spring的StringUtils工具類](https://www.itread01.com/p/336421.html)     
+  - [JPA 使用 Specification 复杂查询和 Criteria 查询](https://blog.wuwii.com/jpa-specification.html)
   - [Spring Data JPA使用Specification动态构建多表查询、复杂查询及排序示例](https://www.jianshu.com/p/659e9715d01d)
   
 - UserEntity 為物件

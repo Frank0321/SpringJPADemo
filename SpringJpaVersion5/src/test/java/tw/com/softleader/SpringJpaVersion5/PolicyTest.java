@@ -61,16 +61,16 @@ public class PolicyTest{
                 .toString());
     }
 
-    @Test
-    void joinTest(){
-        log.info(specMethod(PolicyEntity.builder()
-                                        .policyNo("BBB")
-                                        .InsuredId(5L)
-                                        .build())
-                                    .stream()
-                                    .findFirst().orElse(null)
-                                .toString());
-    }
+//    @Test
+//    void joinTest(){
+//        log.info(specMethod(PolicyEntity.builder()
+//                                        .policyNo("BBB")
+//                                        .InsuredId(5L)
+//                                        .build())
+//                                    .stream()
+//                                    .findFirst().orElse(null)
+//                                .toString());
+//    }
 
     @Test
     void subQueryTest(){
@@ -87,23 +87,23 @@ public class PolicyTest{
             List<Predicate> predicateList = new ArrayList<>();
 
             //如果有 policyNo ，就用 equal
-            if (!StringUtils.isEmpty(policy.getPolicyNo())){
+            if (StringUtils.hasText(policy.getPolicyNo())){
                 Predicate policyPredicate = criteriaBuilder.equal(root.get("policyNo"), policy.getPolicyNo());
                 predicateList.add(policyPredicate);
             }
 
             //如果有 applicantLocalName ，就用 like
-            if (!StringUtils.isEmpty(policy.getApplicantLocalName())){
+            if (StringUtils.hasText(policy.getApplicantLocalName())){
                 Predicate applicantLocalNamePredicate = criteriaBuilder.like(root.get("applicantLocalName"), '%'+policy.getApplicantLocalName()+'%');
                 predicateList.add(applicantLocalNamePredicate);
             }
 
-            //如果有 insuredId 就用 join (失敗)
-            if (!StringUtils.isEmpty(policy.getInsuredId())){
-                Join<PolicyEntity, Insured> insuredJoin = root.join("id", JoinType.LEFT);
-                Predicate insuredPredicate = criteriaBuilder.equal(insuredJoin.get("insuredId"), policy.getInsuredId());
-                predicateList.add(insuredPredicate);
-            }
+//            //如果有 insuredId 就用 join (失敗)
+//            if (!StringUtils.isEmpty(policy.getInsuredId())){
+//                Join<PolicyEntity, Insured> insuredJoin = root.join("InsuredId", JoinType.INNER);
+//                Predicate insuredPredicate = criteriaBuilder.equal(insuredJoin.get("Insured_.id"), policy.getInsuredId());
+//                predicateList.add(insuredPredicate);
+//            }
 
             Predicate[] predicates = new Predicate[predicateList.size()];
             return criteriaBuilder.and(predicateList.toArray(predicates));
@@ -117,7 +117,7 @@ public class PolicyTest{
         Specification<PolicyEntity> specification = (root, criteriaQuery, criteriaBuilder) -> {
             List<Predicate> predicateList = new ArrayList<>();
             //如果有 policyNo ，就用 equal
-            if (!StringUtils.isEmpty(policy.getPolicyNo())){
+            if (StringUtils.hasText(policy.getPolicyNo())){
                 Predicate policyPredicate = criteriaBuilder.equal(root.get("policyNo"), policy.getPolicyNo());
                 predicateList.add(policyPredicate);
             }
