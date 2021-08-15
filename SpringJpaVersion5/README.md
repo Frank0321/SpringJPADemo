@@ -52,9 +52,13 @@
 - Controller
 
 - Service
+
+  - [JPA 使用 Specification 复杂查询和 Criteria 查询](https://blog.wuwii.com/jpa-specification.html)JPA 使用 Specification 复杂查询和 Criteria 查询
+  - [Spring Data JPA使用Specification动态构建多表查询、复杂查询及排序示例](https://www.jianshu.com/p/659e9715d01d)
   
 - Repository (DAO)
-
+  - 繼承 Specification，並在 service 進行實作
+  
 - UserEntity 為物件
 
 - Mapper
