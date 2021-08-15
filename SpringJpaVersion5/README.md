@@ -52,12 +52,15 @@
 - Controller
 
 - Service
+  
 
-  - [JPA 使用 Specification 复杂查询和 Criteria 查询](https://blog.wuwii.com/jpa-specification.html)JPA 使用 Specification 复杂查询和 Criteria 查询
-  - [Spring Data JPA使用Specification动态构建多表查询、复杂查询及排序示例](https://www.jianshu.com/p/659e9715d01d)
+
   
 - Repository (DAO)
-  - 繼承 Specification，並在 service 進行實作
+  - 繼承 Specification，並在 PolicyTest 進行測試
+    
+  - [JPA 使用 Specification 复杂查询和 Criteria 查询](https://blog.wuwii.com/jpa-specification.html)JPA 使用 Specification 复杂查询和 Criteria 查询
+  - [Spring Data JPA使用Specification动态构建多表查询、复杂查询及排序示例](https://www.jianshu.com/p/659e9715d01d)
   
 - UserEntity 為物件
 
@@ -139,7 +142,7 @@
           <scope>provided</scope>
        </dependency>
        ```
-  
+  - 範例程式再 test 中
   - [昕力 MapStruct 介紹](https://www.tpisoftware.com/tpu/articleDetails/2443) 
   - [昕力 MapStruct sourceCode](https://github.com/memory-0318/sandbox/tree/master/0003_MapStructDemo)  
   - [Mappers.getMapper 說明](https://www.itread01.com/content/1559145662.html)
