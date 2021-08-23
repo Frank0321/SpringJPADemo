@@ -75,7 +75,7 @@
 - [Spring data JPA](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#reference)
 
 
-### UserEntity 為物件 TODO
+### UserEntity 為物件 
 
 - 改使用其他 DB 進行轉寫 (mariadb) 
 - 新增資料驗證功能 (JSR-303)
@@ -99,7 +99,38 @@
   
   - [BindingResult验证框架](https://blog.csdn.net/clypm/article/details/69382766)
   - [BindingResult 說明](https://geek-docs.com/spring/spring-tutorials/bindingresult.html)
+- @Enumerated 的功能
+  - 若使用的型別為 enum，則需要在 前面新增 @Enumerated(STRING) 否則只會存取數字
+  ```Java
+  public enum Rating {
+    ONE, TWO, THREE, FOUR, FIVE
+  }
+  
+  @Entity
+  public class Review {
+    @Id
+    @GeneratedValue
+    private Long id;
+    private String message;
+    //在 table 的欄位顯示為 0,1,2,3,4
+    private Rating rating;
+    ...
+   }
 
+  @Entity
+  public class Review {
+    @Id
+    @GeneratedValue
+    private Long id;
+    private String message;
+    //在 table 的欄位顯示為 ONE, TWO, THREE, FOUR, FIVE
+    @Enumerated(EnumType.STRING)
+    private Rating rating;
+    ...
+   }    
+
+  ```
+  - [參考資料](https://thorben-janssen.com/hibernate-enum-mappings/)    
 
 ### application.properties
 
