@@ -43,6 +43,10 @@ H2 DB 相關設定與 Entity 繼承關係等其他設定
 
 - @SuperBuilder
   - 對於繼承父類別的子類別，若要建構父類別成員的方法，則需要使用 @SuperBuilder
+  
+- project : 
+  - 不同 package 底下，只有繼承才可以使用 
+  - 保護 AbstractEntity ，只有繼承該 class 才可以使用他的原件
 
   - [參考1](https://ithelp.ithome.com.tw/articles/10194906)
   - [@Column 參數](https://kknews.cc/zh-tw/code/2bv6v5y.html)
