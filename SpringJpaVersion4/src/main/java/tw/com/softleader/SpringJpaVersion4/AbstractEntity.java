@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
+import org.hibernate.annotations.TypeDef;
 import org.springframework.data.annotation.Version;
 
 
@@ -20,7 +21,6 @@ import java.time.LocalDateTime;
  */
 
 @MappedSuperclass
-@Entity
 @Data
 @SuperBuilder
 @NoArgsConstructor

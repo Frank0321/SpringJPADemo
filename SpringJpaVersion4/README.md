@@ -36,10 +36,20 @@ H2 DB 相關設定與 Entity 繼承關係等其他設定
     - scale表示小數點所占的位數
 - @Embedded 的用法
 
+- @MappedSuperclass 的介紹
+  - 抽出共用的屬性
+  - 不是一個完整的實體類別，不會產生這一個 table，但屬性接反映到繼承的 entity 上
+  - 標註 @MappedSuperclass 則不能再標註 @Entity (因為他不是 Entity)
+
+- @SuperBuilder
+  - 對於繼承父類別的子類別，若要建構父類別成員的方法，則需要使用 @SuperBuilder
+
   - [參考1](https://ithelp.ithome.com.tw/articles/10194906)
   - [@Column 參數](https://kknews.cc/zh-tw/code/2bv6v5y.html)
   - [@Column 參數，官方文件](https://docs.oracle.com/javaee/5/api/javax/persistence/Column.html)
-  - [Hibernate中@Embedded和@Embeddable注解的使用](https://blog.csdn.net/lmy86263/article/details/52108130
+  - [Hibernate中@Embedded和@Embeddable注解的使用](https://blog.csdn.net/lmy86263/article/details/52108130)
+  - [@MappedSuperclass的作用](https://www.cnblogs.com/zouhong/p/13450688.html)
+  - [Lombok 使用@SuperBuilder產生繼承類別的Builder](https://matthung0807.blogspot.com/2020/04/lombok-superbuilder-parent-builder.html)
   
 ## application.properties 的相關設定
 - 資料庫相關設定 (H2 為範例)
