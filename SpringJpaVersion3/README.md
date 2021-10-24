@@ -71,6 +71,7 @@
 - 由方法名稱撰寫查詢的方法
   - findBy .... And ...
   - 好像一次回傳，就是傳回一個物件 ?! 或是一個 Collection<T>
+  - 要定義在 Repository 這一個 interface 裡面
 
 - [Spring data JPA](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#reference)
 
