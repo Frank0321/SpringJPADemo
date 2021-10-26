@@ -56,38 +56,40 @@
 
 
   
-- Repository (DAO)
-  - 繼承 Specification，並在 PolicyTest 進行測試
-  - root, criteriaQuery, criteriaBuilder 三個參數的用法 :
-  1. 先建立一個 List<Predicate> 的物件，擺放要查詢的條件
-     ```java
-     List<Predicate> predicateList = new ArrayList<>();
-     ```
-  2. 建立要查詢的條件 (where 的內容)
-     - 通常先確認有這個條件值存在 (name != null)
-     - 建立搜尋條件的寫法，並加到 list 中
-     ```java
-     if (!StringUtils.isEmpty(policy.getPolicyNo())){
-                Predicate policyPredicate = criteriaBuilder.equal(root.get("policyNo"), policy.getPolicyNo());
-                predicateList.add(policyPredicate);
-            }
-     ```
-  3. 組合成查詢條件，並回傳為一個 specification 物件
-     ```java
-     Predicate[] predicates = new Predicate[predicateList.size()];
-     return criteriaBuilder.and(predicateList.toArray(predicates));
-     ```
-  - [Spring的StringUtils工具類](https://www.itread01.com/p/336421.html)     
-  - [JPA 使用 Specification 复杂查询和 Criteria 查询](https://blog.wuwii.com/jpa-specification.html)
-  - [Spring Data JPA使用Specification动态构建多表查询、复杂查询及排序示例](https://www.jianshu.com/p/659e9715d01d)
-  
-- UserEntity 為物件
+### Repository (DAO)
+- 繼承 Specification，並在 PolicyTest 進行測試
+- root, criteriaQuery, criteriaBuilder 三個參數的用法 :
+1. 先建立一個 List<Predicate> 的物件，擺放要查詢的條件
+   ```java
+   List<Predicate> predicateList = new ArrayList<>();
+   ```
+2. 建立要查詢的條件 (where 的內容)
+   - 通常先確認有這個條件值存在 (name != null)
+   - 建立搜尋條件的寫法，並加到 list 中
+   ```java
+   if (!StringUtils.isEmpty(policy.getPolicyNo())){
+              Predicate policyPredicate = criteriaBuilder.equal(root.get("policyNo"), policy.getPolicyNo());
+              predicateList.add(policyPredicate);
+          }
+   ```
+3. 組合成查詢條件，並回傳為一個 specification 物件
+   ```java
+   Predicate[] predicates = new Predicate[predicateList.size()];
+   return criteriaBuilder.and(predicateList.toArray(predicates));
+   ```
+- [Spring的StringUtils工具類](https://www.itread01.com/p/336421.html)     
+- [JPA 使用 Specification 复杂查询和 Criteria 查询](https://blog.wuwii.com/jpa-specification.html)
+- [Spring Data JPA使用Specification动态构建多表查询、复杂查询及排序示例](https://www.jianshu.com/p/659e9715d01d)
+
 
 ### 預先執行 SQL
 - method1
   - 在 src/main/resources 放入 sql 檔就可以了
   - 但是啟動時，會先執行 sql ，所以需要連 table 都一併建立
 - method2
+  - 在 application.properties 中設定
+  - spring.sql.init.schema-locations=classpath:create_account_table.sql
+- method3
   - 只 insert data 的話，可以在 Application(有標註 @SpringBootApplication 的 class) 中 加入一段如 : 
   ```java
 	@Bean
@@ -100,85 +102,86 @@
 		repository.save(MemberEntity.builder().name("Application").empNo("Application_emp").build());
 	}
   ```
+  - [參考資料](https://stackoverflow.com/questions/38040572/spring-boot-loading-initial-data)
+
+### Mapper
+- 介紹 : 在操作資料時，為了避免污染資料，或是保護資料，常會對於資料進行轉換
+- 常見的轉換方式 :
+  - 相同資料格式進行轉換 (欄位名稱一樣)
+  - 部分轉換 (VO)  
+  - 不同欄位名稱進行轉換 (id -> policy_id)
+  - Collection類型轉換
+  - 多來源物件組合進行轉換
+- 使用的 dependency
+  ```xml
+  <mapstruct.version>1.4.2.Final</mapstruct.version>
   
-- Mapper
-  - 介紹 : 在操作資料時，為了避免污染資料，或是保護資料，常會對於資料進行轉換
-  - 常見的轉換方式 :
-    - 相同資料格式進行轉換 (欄位名稱一樣)
-    - 部分轉換 (VO)  
-    - 不同欄位名稱進行轉換 (id -> policy_id)
-    - Collection類型轉換
-    - 多來源物件組合進行轉換
-  - 使用的 dependency
-    ```xml
-    <mapstruct.version>1.4.2.Final</mapstruct.version>
+  <dependency>
+      <groupId>org.mapstruct</groupId>
+      <artifactId>mapstruct</artifactId>
+      <version>${mapstruct.version}</version>
+  </dependency>
+  <dependency>
+      <groupId>org.mapstruct</groupId>
+      <artifactId>mapstruct-processor</artifactId>
+      <version>${mapstruct.version}</version>
+      <!-- -->
+      <scope>provided</scope>
+  </dependency>
+  ```
+- 使用到的功能 :   
+  - Mappers.getMapper : 自動生成的介面的實現可以通過 Mapper 的 class 物件獲取，從而讓客戶端可以訪問 Mapper 介面的實現
+    - 範例寫法 : CountryMapper INSTANCE = Mappers.getMapper(CountryMapper.class);
+  - @Mapping(source="source field name", target="target field name", expression=java(method))
+    - source : 來源的欄位，對應抽象方法 input 參數名稱 + "." + 欄位
+    - target : 欄位則表示目標物件的欄位名稱
+    - expression : 會使用到 Java 寫的 method
+    - qualifiedByName : 可以定義一個方法，額外處理數值
+      ```java
+      @Mapping(source = "pm25", target = "pm25", qualifiedByName = "formatDoubleDef")
+      AreaVO areaPO2areaVO(AreaPO areaPO);
+      
+      @Named("formatDoubleDef")//需要與 qualifiedByName 的內部名稱一樣
+      default Double formatDouble(Double source) {
+          DecimalFormat decimalFormat = new DecimalFormat("0.00");//小数位格式化
+          if (source == null) {
+              source = 0.0;
+          }
+          return Double.parseDouble(decimalFormat.format(source));
+      }
+      ```
+    - ignore : ignore = true，表示跳過該欄位
+  - @Mappings({...}) : 將多個@Mapping設定包裝起來
+  - mapstruct-processor (dependency) : 會自動生成轉換程式碼
+    - 在 target 裡面的 Mapper 位置，會自動升成一個 Impl 的 class
+  - @Mapper
+    - componentModel = "spring" : 自動產生 Impl 的 class，則不需要 Mappers.getMapper 生成 Impl，但會延伸問題 3
+
+- 遇到問題 1 : java: package org.mapstruct does not exist
+  - 解決方法 : 好像不能直接把 version 寫在 dependency 裡面 ?!
+
+- 遇到問題 2 : Internal error in the mapping processor: java.lang.NullPointerException
+- Mapper 使用的版本在 1.4.1.Final(如 1.3.1.Final) 以下時，可能會發生
+  Internal error in the mapping processor: java.lang.NullPointerException，
+  - 解決方法 :
+    - 將 Mapper dependency 版本設為 1.4.1.Final
+    - 在 Complier 的 User-local build process... 中，新增 -Djps.track.ap.dependencies=false
+    - [升級版本](https://www.cnblogs.com/viaisi/p/14103878.html)
+    - [stackoverflow 解決方法](https://stackoverflow.com/questions/65112406/intellij-idea-mapstruct-java-internal-error-in-the-mapping-processor-java-lang)
+  ![image](https://i.stack.imgur.com/QyDMc.png)
     
-    <dependency>
-        <groupId>org.mapstruct</groupId>
-        <artifactId>mapstruct</artifactId>
-        <version>${mapstruct.version}</version>
-    </dependency>
-    <dependency>
+ - 遇到問題 3 : Could not autowire. No beans of 'xxxxMapper' type found.
+   - 當 @Mapper 註解改使用 @Mapper(componentModel = "spring")，則可以需要使用 Mapper 的地方用 @Autowired 注入
+   - 但在注入的時候，會跳出 Could not autowire. No beans of 'xxxxMapper' type found. 的問題
+   - 解決方法 : 在 mapstruct-processor 的 dependency 底下新增 <scope>provided</scope>，因此整個 dependency 為
+     ```xml
+     <dependency>
         <groupId>org.mapstruct</groupId>
         <artifactId>mapstruct-processor</artifactId>
         <version>${mapstruct.version}</version>
-        <!-- -->
         <scope>provided</scope>
-    </dependency>
-    ```
-  - 使用到的功能 :   
-    - Mappers.getMapper : 自動生成的介面的實現可以通過 Mapper 的 class 物件獲取，從而讓客戶端可以訪問 Mapper 介面的實現
-      - 範例寫法 : CountryMapper INSTANCE = Mappers.getMapper(CountryMapper.class);
-    - @Mapping(source="source field name", target="target field name", expression=java(method))
-      - source : 來源的欄位，對應抽象方法 input 參數名稱 + "." + 欄位
-      - target : 欄位則表示目標物件的欄位名稱
-      - expression : 會使用到 Java 寫的 method
-      - qualifiedByName : 可以定義一個方法，額外處理數值
-        ```java
-        @Mapping(source = "pm25", target = "pm25", qualifiedByName = "formatDoubleDef")
-        AreaVO areaPO2areaVO(AreaPO areaPO);
-        
-        @Named("formatDoubleDef")//需要與 qualifiedByName 的內部名稱一樣
-        default Double formatDouble(Double source) {
-            DecimalFormat decimalFormat = new DecimalFormat("0.00");//小数位格式化
-            if (source == null) {
-                source = 0.0;
-            }
-            return Double.parseDouble(decimalFormat.format(source));
-        }
-        ```
-      - ignore : ignore = true，表示跳過該欄位
-    - @Mappings({...}) : 將多個@Mapping設定包裝起來
-    - mapstruct-processor (dependency) : 會自動生成轉換程式碼
-      - 在 target 裡面的 Mapper 位置，會自動升成一個 Impl 的 class
-    - @Mapper
-      - componentModel = "spring" : 自動產生 Impl 的 class，則不需要 Mappers.getMapper 生成 Impl，但會延伸問題 3
-
-  - 遇到問題 1 : java: package org.mapstruct does not exist
-    - 解決方法 : 好像不能直接把 version 寫在 dependency 裡面 ?!
-
-  - 遇到問題 2 : Internal error in the mapping processor: java.lang.NullPointerException
-  - Mapper 使用的版本在 1.4.1.Final(如 1.3.1.Final) 以下時，可能會發生
-    Internal error in the mapping processor: java.lang.NullPointerException，
-    - 解決方法 :
-      - 將 Mapper dependency 版本設為 1.4.1.Final
-      - 在 Complier 的 User-local build process... 中，新增 -Djps.track.ap.dependencies=false
-      - [升級版本](https://www.cnblogs.com/viaisi/p/14103878.html)
-      - [stackoverflow 解決方法](https://stackoverflow.com/questions/65112406/intellij-idea-mapstruct-java-internal-error-in-the-mapping-processor-java-lang)
-  ![image](https://i.stack.imgur.com/QyDMc.png)
-      
-   - 遇到問題 3 : Could not autowire. No beans of 'xxxxMapper' type found.
-     - 當 @Mapper 註解改使用 @Mapper(componentModel = "spring")，則可以需要使用 Mapper 的地方用 @Autowired 注入
-     - 但在注入的時候，會跳出 Could not autowire. No beans of 'xxxxMapper' type found. 的問題
-     - 解決方法 : 在 mapstruct-processor 的 dependency 底下新增 <scope>provided</scope>，因此整個 dependency 為
-       ```xml
-       <dependency>
-          <groupId>org.mapstruct</groupId>
-          <artifactId>mapstruct-processor</artifactId>
-          <version>${mapstruct.version}</version>
-          <scope>provided</scope>
-       </dependency>
-       ```
+     </dependency>
+     ```
   - 範例程式再 test 中
   - [昕力 MapStruct 介紹](https://www.tpisoftware.com/tpu/articleDetails/2443) 
   - [昕力 MapStruct sourceCode](https://github.com/memory-0318/sandbox/tree/master/0003_MapStructDemo)  
