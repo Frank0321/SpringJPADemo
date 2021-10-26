@@ -83,9 +83,23 @@
   
 - UserEntity 為物件
 
-- 預先執行 SQL
+### 預先執行 SQL
+- method1
   - 在 src/main/resources 放入 sql 檔就可以了
   - 但是啟動時，會先執行 sql ，所以需要連 table 都一併建立
+- method2
+  - 只 insert data 的話，可以在 Application(有標註 @SpringBootApplication 的 class) 中 加入一段如 : 
+  ```java
+	@Bean
+	ApplicationRunner init(MemberRepository repository){
+		return (ApplicationArguments args) -> dataSetup(repository);
+	}
+
+	private void dataSetup(MemberRepository repository) {
+        //要 insert 的資料
+		repository.save(MemberEntity.builder().name("Application").empNo("Application_emp").build());
+	}
+  ```
   
 - Mapper
   - 介紹 : 在操作資料時，為了避免污染資料，或是保護資料，常會對於資料進行轉換
