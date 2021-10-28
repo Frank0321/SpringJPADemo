@@ -110,6 +110,7 @@
   - Controller 使用 ResponseEntity 的方式傳送資料
   - Controller 用 @Operation 撰寫 swagger 上的註解
   - Repository 使用抽象方法撰寫 interface
+  - 修改時間格式
   - 改使用 mariadb 設計 Entity
 
 
