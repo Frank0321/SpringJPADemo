@@ -156,6 +156,8 @@
     - 在 target 裡面的 Mapper 位置，會自動升成一個 Impl 的 class
   - @Mapper
     - componentModel = "spring" : 自動產生 Impl 的 class，則不需要 Mappers.getMapper 生成 Impl，但會延伸問題 3
+    - `important`
+
 
 - 遇到問題 1 : java: package org.mapstruct does not exist
   - 解決方法 : 好像不能直接把 version 寫在 dependency 裡面 ?!
