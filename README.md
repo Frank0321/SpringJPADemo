@@ -1,5 +1,9 @@
 # Spring : JPA 範例檔案
 
+JPA(Java Persistence API) 是 SUN 針對 ORM 技術提出的規範，目的為簡化持久化的開發工作以及整合各家 ORM 技術。
+
+簡單來說 : `與資料庫進行 CRUD 的操作`
+
 此次內容包含 :
 - version1 : 使用 @Repository 的 annotation 設定 DAO，並利用 RESTful 的方式撰寫 CRUD
 - version2 : 使用 JpaRepository interface 介面設計 DAO，以及添加 H2 DB 資料庫
