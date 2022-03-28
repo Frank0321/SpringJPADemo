@@ -120,6 +120,10 @@
 ### Repository(DAO) 
 - 常使用 interface
 - 可以繼承 JpaRepository 或是 CrudRepository，比較常繼承 JpaRepository (方法較多)
+- 原理 : 
+  - 從 JpaRepository 往裡面的 method 看(如 findAll())，可以發現是在 SimpleJpaRepository 這一個 class 進行實作
+
+  - [Spring Data JPA - JpaRepository 原理](https://www.gss.com.tw/blog/spring-data-jpa-1)
 
 - 使用到 JPA dependency 的時候，會自動配置 DataSource，否則會 :
   org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException，
