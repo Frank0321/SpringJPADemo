@@ -57,8 +57,20 @@
 - 讀取參數的方式有三種 : @RequestParam、@PathVariable、@RequestBody
 - @RequestParam : 會在網址後面面多一個名稱與問號
   - http://localhost:8082/version2/findById?id=10
+  ```java
+  @GetMapping("/findById")
+    public UserEntity findOne (@RequestParam Long id){
+    
+    }
+  ```
 - @PathVariable : 直接連載網址後面
   - http://localhost:8082/version2/50
+  ```java
+  @PutMapping("/{id}")
+  public UserEntity modifyEmpoly (@PathVariable Long id){
+       
+    }
+  ```
 - @RequestBody : 類似用 post 的方式傳入參數
   - http://localhost:8082/version2
 - @ModelAttribute : (較少用)
