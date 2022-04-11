@@ -188,7 +188,11 @@
    - precision : 精度，有效位數幾位
    - scale : 精度，小數位數的總位數
    - [參考](https://fanlychie.github.io/post/jpa-column-annotation.html)
-  
+
+ - Entity need default constructor
+   - The hibernate uses the default constructor method to create a bean class.
+   - [No default constructor for entity](https://www.yawintutor.com/unexpected-error-no-default-constructor-for-entity/)
+    
 
 ### application.properties
 
